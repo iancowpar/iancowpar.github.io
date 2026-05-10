@@ -188,6 +188,53 @@
       border-radius: 6px;
     }
 
+    /* Featured essays */
+    .essays {
+      margin: 1.75rem 0 2rem;
+    }
+    .essay {
+      padding: 1.1rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .essay:last-of-type {
+      border-bottom: 1px solid var(--border);
+    }
+    .essay-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      font-variation-settings: 'opsz' 100;
+      letter-spacing: -0.015em;
+      line-height: 1.2;
+      display: block;
+      color: var(--text);
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+    }
+    .essay-title:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .essay-title::after {
+      content: ' \2197';
+      color: var(--muted);
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      vertical-align: super;
+      line-height: 1;
+      margin-left: 0.15em;
+    }
+    .essay-title:hover::after {
+      color: var(--accent);
+    }
+    .essay-tagline {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.55;
+      margin: 0;
+    }
+
     /* Work */
     .work-block {
       margin-bottom: 2rem;
@@ -405,8 +452,24 @@
 
     <section id="writing">
       <h2 class="section-heading">Writing</h2>
-      <p><a href="https://theunofficialleader.substack.com" target="_blank" rel="noopener"><em>The Unofficial Leader</em></a> is where I test the thinking before it shows up in the work. Most of the named concepts on this page started there: Zero-Translation Building, the Network Intelligence Layer, the gap between when a signal is detected and when the right person finally acts on it. I publish weekly, in essays and as a podcast, with the occasional Field Note.</p>
-      <p>Field Note Vol. 03 argues that most AI rollouts stall in Layer 2 because Layer 1 was never built, and a new capability cannot survive on top of a missing foundation.</p>
+      <p><a href="https://theunofficialleader.substack.com" target="_blank" rel="noopener"><em>The Unofficial Leader</em></a> is the moat in published form. Every essay, every podcast episode, every Field Note is a record of how I think, in language no model can replicate. Zero-Translation Building, the Network Intelligence Layer, and the gap between when a signal is detected and when the right person finally acts on it all started there. The writing is not a side activity. <span class="key">It is the proof.</span></p>
+
+      <div class="essays">
+        <div class="essay">
+          <a class="essay-title" href="https://theunofficialleader.substack.com/p/what-i-built-when-i-could-finally" target="_blank" rel="noopener">What I Built When I Could Finally Build</a>
+          <p class="essay-tagline">The original Zero-Translation Building piece. AI is collapsing the distance between what you can think and what you can make, and the people working inside that closed distance will define the next decade of product.</p>
+        </div>
+        <div class="essay">
+          <a class="essay-title" href="https://theunofficialleader.substack.com/p/before-the-next-reduction" target="_blank" rel="noopener">Before the Next Reduction</a>
+          <p class="essay-tagline">The Network Intelligence Layer fully formed: the relational operating system beneath the org chart, and what becomes catastrophically visible when a RIF takes it apart.</p>
+        </div>
+        <div class="essay">
+          <a class="essay-title" href="https://theunofficialleader.substack.com/p/listening-is-no-longer-the-hard-part" target="_blank" rel="noopener">Listening Is No Longer the Hard Part</a>
+          <p class="essay-tagline">Listening got easy. Routing what you heard to the right person in time is the actual problem.</p>
+        </div>
+      </div>
+
+      <p>Field Note Vol. 03, below, is the same thinking made visual. Most AI rollouts stall in Layer 2 because Layer 1 was never built, and a new capability cannot survive on top of a missing foundation.</p>
       <div class="field-note-wrap">
         <img src="zero-translation-stack.png" alt="How to Build a Zero-Translation Stack: 3 Layers. Layer 1 Shared Foundation: institutional memory, team's voice preserved, zero cold starts. Layer 2 Shared Language: shared prompt patterns, common vocabulary, peer learning loops. Layer 3 Shared Standards: explicit quality norms, encoded learnings, adoption discipline. The layer beneath all three: fidelity." />
       </div>
