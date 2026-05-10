@@ -8,17 +8,27 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #FAFAF7;
-      --surface: #ffffff;
-      --text: #2f3437;
-      --muted: #6b6f76;
-      --accent: #2E5BBA;
-      --accent-soft: #eef3fc;
-      --border: #ececec;
+      --bg-dark: #0B1020;
+      --bg-dark-2: #111733;
+      --bg-light: #ffffff;
+      --bg-light-2: #F7F8FB;
+      --text-dark: #ffffff;
+      --text-dark-muted: #9aa3b8;
+      --text-light: #0B1020;
+      --text-light-muted: #5b6478;
+      --accent: #4F7CFF;
+      --accent-bright: #6EA0FF;
+      --accent-soft: #E8EFFF;
+      --accent-dim: #1E2E5E;
+      --border-dark: #1d2545;
+      --border-light: #E4E7EF;
+      --shadow-sm: 0 1px 2px rgba(11, 16, 32, 0.04), 0 2px 4px rgba(11, 16, 32, 0.04);
+      --shadow-md: 0 4px 8px rgba(11, 16, 32, 0.06), 0 8px 16px rgba(11, 16, 32, 0.06);
+      --shadow-lg: 0 12px 32px rgba(11, 16, 32, 0.08), 0 24px 64px rgba(11, 16, 32, 0.08);
     }
 
     * { box-sizing: border-box; }
@@ -26,63 +36,77 @@
     html, body {
       margin: 0;
       padding: 0;
-      background: var(--bg);
-      color: var(--text);
+      background: var(--bg-light);
+      color: var(--text-light);
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.55;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
-    .wrap {
-      max-width: 880px;
-      margin: 0 auto;
-      padding: 4.5rem 2rem 4rem;
+    .mono {
+      font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+      font-feature-settings: 'liga' 0;
     }
 
     a {
       color: var(--accent);
       text-decoration: none;
     }
-    a:hover {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-    h1, h2, h3 {
-      font-weight: 700;
-      line-height: 1.25;
-      margin: 0;
-      letter-spacing: -0.015em;
+    /* HERO ---------------------------------------------------- */
+    .hero {
+      background: var(--bg-dark);
+      background-image:
+        radial-gradient(circle at 15% 20%, rgba(79, 124, 255, 0.18), transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(110, 160, 255, 0.10), transparent 50%);
+      color: var(--text-dark);
+      padding: 6rem 2rem 6.5rem;
+      position: relative;
+      overflow: hidden;
     }
-
-    /* Header */
-    header {
-      margin-bottom: 3.5rem;
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(79, 124, 255, 0.5), transparent);
     }
-    .header-status {
+    .hero-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 0.72rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 500;
       letter-spacing: 0.06em;
-      font-weight: 600;
-      color: var(--accent);
+      color: var(--accent-bright);
       text-transform: uppercase;
-      padding: 0.35rem 0.65rem 0.35rem 0.6rem;
-      background: var(--accent-soft);
+      margin-bottom: 2rem;
+      padding: 0.4rem 0.85rem;
+      background: rgba(79, 124, 255, 0.08);
+      border: 1px solid rgba(79, 124, 255, 0.25);
       border-radius: 999px;
-      margin-bottom: 1.5rem;
     }
-    .header-status::before {
+    .eyebrow::before {
       content: '';
       display: inline-block;
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: var(--accent);
-      animation: pulse 2s ease-in-out infinite;
+      background: var(--accent-bright);
+      box-shadow: 0 0 12px rgba(110, 160, 255, 0.7);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
     }
     .avatar {
       width: 80px;
@@ -91,487 +115,540 @@
       object-fit: cover;
       display: block;
       margin-bottom: 1.5rem;
-      filter: grayscale(100%);
+      border: 1px solid rgba(255,255,255,0.1);
     }
-    header h1 {
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: 4.25rem;
+    .hero h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2.75rem, 6vw, 5.5rem);
       font-weight: 900;
-      font-variation-settings: 'opsz' 144, 'SOFT' 30;
-      letter-spacing: -0.035em;
-      line-height: 1.02;
-      margin-bottom: 1.25rem;
+      letter-spacing: -0.04em;
+      line-height: 0.98;
+      margin: 0 0 1.5rem;
+      max-width: 14ch;
     }
+    .hero h1 .accent { color: var(--accent-bright); }
     .hero-line {
-      font-family: 'Fraunces', Georgia, serif;
-      font-style: italic;
-      font-size: 1.7rem;
-      line-height: 1.3;
+      font-size: clamp(1.2rem, 1.6vw, 1.5rem);
       font-weight: 500;
-      font-variation-settings: 'opsz' 60;
-      letter-spacing: -0.015em;
-      color: var(--text);
-      margin: 0 0 1.5rem;
-      max-width: 760px;
+      line-height: 1.4;
+      color: var(--text-dark);
+      margin: 0 0 1rem;
+      max-width: 60ch;
+      letter-spacing: -0.01em;
     }
-    .hero-line .accent {
-      color: var(--accent);
-    }
-    .role {
-      font-size: 1rem;
-      color: var(--muted);
-      margin: 0 0 1.5rem;
-      max-width: 640px;
+    .hero-line .accent { color: var(--accent-bright); font-weight: 600; }
+    .hero-role {
+      font-size: 1.0625rem;
+      color: var(--text-dark-muted);
+      max-width: 60ch;
+      margin: 0 0 2.5rem;
       line-height: 1.55;
     }
-    .links {
+
+    .cta-row {
       display: flex;
-      gap: 1.25rem;
-      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
     }
-    .links a {
+    .btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      color: var(--muted);
+      gap: 0.5rem;
+      padding: 0.85rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
       font-size: 0.95rem;
-      font-weight: 500;
+      letter-spacing: -0.005em;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      border: 1px solid transparent;
     }
-    .links a:hover {
-      color: var(--accent);
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: var(--accent-bright);
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      color: var(--text-dark);
+      border-color: rgba(255,255,255,0.15);
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.3);
       text-decoration: none;
     }
-    .links svg {
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
+    .btn svg { width: 16px; height: 16px; }
+
+    /* MAIN ---------------------------------------------------- */
+    main { background: var(--bg-light); }
+    section.block {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+    section.block.tight { padding: 4rem 2rem; }
+    section.block.alt { background: var(--bg-light-2); max-width: none; }
+    section.block.alt > .inner { max-width: 1080px; margin: 0 auto; padding: 0 0; }
+
+    .label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: block;
     }
 
-    /* Sections */
-    section {
-      margin-bottom: 3rem;
+    .section-heading {
+      font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin: 0 0 1rem;
     }
-    section p {
-      margin: 0 0 1.1rem;
-    }
-    section p:last-child {
-      margin-bottom: 0;
+    .section-sub {
+      font-size: 1.1rem;
+      color: var(--text-light-muted);
+      max-width: 65ch;
+      margin: 0 0 2.5rem;
     }
 
-    /* Notion-style callout */
+    /* MANIFESTO ----------------------------------------------- */
+    .manifesto {
+      max-width: 720px;
+    }
+    .manifesto p {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      margin: 0 0 1.4rem;
+      color: var(--text-light);
+    }
+    .key {
+      color: var(--accent);
+      font-weight: 600;
+    }
     .callout {
       background: var(--accent-soft);
       border-left: 3px solid var(--accent);
       border-radius: 4px;
-      padding: 1.1rem 1.25rem;
-      margin-top: 1.75rem;
-      color: var(--text);
-      font-size: 1rem;
-      line-height: 1.55;
+      padding: 1.25rem 1.5rem;
+      margin: 2.5rem 0 0;
+      font-size: 1.05rem;
     }
-    .callout p {
+    .callout p { margin: 0 0 0.75rem; }
+    .callout p:last-child { margin: 0; }
+
+    /* WRITING ------------------------------------------------- */
+    .writing-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    @media (max-width: 880px) {
+      .writing-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    .writing-lead p {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      margin: 0 0 1.25rem;
+    }
+    .essays {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .essay {
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 1.25rem 1.4rem;
+      transition: all 0.15s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .essay:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
+    }
+    .essay-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      color: var(--text-light);
+      text-decoration: none;
+      margin-bottom: 0.4rem;
+    }
+    .essay-title::after {
+      content: '\2197';
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .essay:hover .essay-title { color: var(--accent); }
+    .essay-tagline {
+      color: var(--text-light-muted);
+      font-size: 0.92rem;
+      line-height: 1.55;
       margin: 0;
     }
-    .callout p + p {
-      margin-top: 0.75rem;
-    }
 
-    /* Field note */
-    .field-note-wrap {
-      margin-top: 1.5rem;
-    }
+    .field-note-wrap { margin-top: 2.5rem; }
     .field-note-wrap img {
       width: 100%;
       height: auto;
       display: block;
-      border: 1px solid var(--border);
-      border-radius: 6px;
+      border-radius: 12px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-md);
     }
 
-    /* Featured essays */
-    .essays {
-      margin: 1.75rem 0 2rem;
+    /* WORK ---------------------------------------------------- */
+    .work-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
     }
-    .essay {
-      padding: 1.1rem 0;
-      border-top: 1px solid var(--border);
+    @media (max-width: 880px) {
+      .work-grid { grid-template-columns: 1fr; }
     }
-    .essay:last-of-type {
-      border-bottom: 1px solid var(--border);
+    .work-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
     }
-    .essay-title {
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      font-variation-settings: 'opsz' 100;
-      letter-spacing: -0.015em;
-      line-height: 1.2;
-      display: block;
-      color: var(--text);
-      text-decoration: none;
-      margin-bottom: 0.5rem;
-    }
-    .essay-title:hover {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    .essay-title::after {
-      content: ' \2197';
-      color: var(--muted);
-      font-family: 'Inter', sans-serif;
+    .work-card .role-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
       font-weight: 500;
-      font-size: 0.95rem;
-      vertical-align: super;
-      line-height: 1;
-      margin-left: 0.15em;
-    }
-    .essay-title:hover::after {
       color: var(--accent);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.75rem;
+      display: block;
     }
-    .essay-tagline {
-      color: var(--muted);
+    .work-card p {
       font-size: 0.95rem;
-      line-height: 1.55;
+      line-height: 1.65;
+      color: var(--text-light);
       margin: 0;
     }
 
-    /* Work */
-    .work-block {
-      margin-bottom: 2rem;
-    }
-    .work-block:last-child {
-      margin-bottom: 0;
-    }
-    .label {
-      display: block;
-      font-size: 0.78rem;
-      letter-spacing: 0.04em;
-      color: var(--muted);
-      font-weight: 500;
-      margin-bottom: 0.4rem;
-    }
-
-    /* Section heading */
-    .section-heading {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 1.1rem;
-      letter-spacing: -0.01em;
-    }
-
-    /* Projects */
-    .projects {
+    /* PROJECTS ------------------------------------------------ */
+    .projects-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      gap: 1.25rem;
     }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.5rem;
+    @media (max-width: 880px) {
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+    .project-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      padding: 1.75rem;
       display: flex;
       flex-direction: column;
+      transition: all 0.15s ease;
+      box-shadow: var(--shadow-sm);
     }
-    .card.featured {
+    .project-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .project-card.featured {
       grid-column: 1 / -1;
-      background: var(--accent-soft);
+      background: linear-gradient(135deg, #0B1020 0%, #1a2347 100%);
+      color: var(--text-dark);
       border-color: var(--accent);
+      box-shadow: var(--shadow-lg);
     }
-    .card h3 {
-      font-size: 1.0625rem;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-      letter-spacing: -0.01em;
-    }
-    .card .what {
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 0.75rem;
-      font-size: 0.95rem;
-    }
-    .card p {
-      color: var(--muted);
-      font-size: 0.9375rem;
-      line-height: 1.55;
-      margin-bottom: 1rem;
-    }
-    .card-status {
+    .project-card.featured .project-title { color: var(--text-dark); }
+    .project-card.featured .project-what { color: var(--accent-bright); }
+    .project-card.featured .project-body { color: var(--text-dark-muted); }
+    .project-card.featured .stack { color: var(--text-dark-muted); }
+
+    .project-status {
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.72rem;
-      letter-spacing: 0.04em;
-      color: var(--accent);
       font-weight: 600;
-      margin-bottom: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-bright);
+      margin-bottom: 1rem;
       display: flex;
       align-items: center;
-      gap: 0.45rem;
-      text-transform: uppercase;
+      gap: 0.5rem;
     }
-    .card-status::before {
+    .project-status::before {
       content: '';
       display: inline-block;
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: var(--accent);
-      animation: pulse 2s ease-in-out infinite;
+      background: var(--accent-bright);
+      box-shadow: 0 0 12px rgba(110, 160, 255, 0.6);
+      animation: pulse 2.4s ease-in-out infinite;
     }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
+    .project-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.5rem;
     }
-    .stack {
-      font-family: 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-bottom: 0.85rem;
-    }
-    .card .repo {
-      margin-top: auto;
-      font-size: 0.875rem;
+    .project-what {
+      font-size: 1rem;
       font-weight: 500;
+      color: var(--text-light);
+      margin: 0 0 0.85rem;
     }
-    .card .repo-private {
+    .project-body {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: var(--text-light-muted);
+      margin: 0 0 1rem;
+    }
+    .project-card.featured .project-body + .project-body { margin-top: 0; }
+    .stack {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--text-light-muted);
+      margin-bottom: 1rem;
+      letter-spacing: -0.005em;
+    }
+    .repo-link {
       margin-top: auto;
-      font-size: 0.8125rem;
-      color: var(--muted);
-      font-style: italic;
-    }
-
-    /* Footer */
-    footer {
-      margin-top: 4rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.85rem;
-      color: var(--muted);
-      text-align: center;
-    }
-    footer a {
-      color: var(--muted);
-    }
-    footer a:hover {
+      font-weight: 500;
       color: var(--accent);
     }
-    footer .dot {
-      margin: 0 0.6rem;
-      color: var(--border);
+    .project-card.featured .repo-link { color: var(--accent-bright); }
+    .repo-private {
+      margin-top: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--text-light-muted);
     }
 
-    /* Inline emphasis: bold + accent for thesis spine */
-    .key {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    /* Handwritten close */
+    /* HANDWRITTEN CLOSE --------------------------------------- */
     .handwritten-section {
-      margin: 4.5rem 0 1rem;
-      padding: 2.75rem 0 2.5rem;
-      border-top: 1px solid var(--border);
+      background: var(--bg-dark);
+      background-image:
+        radial-gradient(circle at 50% 30%, rgba(79, 124, 255, 0.15), transparent 45%);
+      padding: 5rem 2rem;
+      color: var(--text-dark);
     }
     .handwritten {
-      font-family: 'Caveat', 'Bradley Hand', cursive;
-      font-weight: 500;
-      font-size: 2rem;
-      line-height: 1.5;
-      color: var(--text);
       max-width: 640px;
       margin: 0 auto;
+      font-family: 'Caveat', 'Bradley Hand', cursive;
+      font-size: clamp(1.45rem, 2.4vw, 2.05rem);
+      font-weight: 500;
+      line-height: 1.5;
+      color: var(--text-dark);
       letter-spacing: 0.01em;
     }
-    .handwritten p {
-      margin: 0;
-    }
-    .handwritten p + p {
-      margin-top: 1.5rem;
-    }
-    .handwritten .key-hand {
-      color: var(--accent);
-    }
+    .handwritten p { margin: 0; }
+    .handwritten p + p { margin-top: 1.5rem; }
+    .handwritten .key-hand { color: var(--accent-bright); }
 
-    /* Mobile */
+    /* FOOTER -------------------------------------------------- */
+    footer {
+      background: var(--bg-dark);
+      color: var(--text-dark-muted);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border-dark);
+    }
+    footer a { color: var(--text-dark-muted); }
+    footer a:hover { color: var(--accent-bright); text-decoration: none; }
+    footer .dot { margin: 0 0.6rem; color: var(--border-dark); }
+
+    /* Mobile -------------------------------------------------- */
     @media (max-width: 640px) {
-      .wrap {
-        padding: 2.75rem 1.25rem 3rem;
-      }
-      header h1 {
-        font-size: 2.5rem;
-        line-height: 1.05;
-      }
-      .hero-line {
-        font-size: 1.25rem;
-      }
-      .handwritten {
-        font-size: 1.45rem;
-        line-height: 1.45;
-      }
-      .handwritten p + p {
-        margin-top: 1.1rem;
-      }
-      .handwritten-section {
-        margin: 3rem 0 0.5rem;
-        padding: 2rem 0 1.75rem;
-      }
-      .role {
-        font-size: 0.95rem;
-      }
-      .avatar {
-        width: 60px;
-        height: 60px;
-        border-radius: 12px;
-        margin-bottom: 1rem;
-      }
-      .header-status {
-        font-size: 0.68rem;
-        margin-bottom: 1.1rem;
-      }
-      .projects {
-        grid-template-columns: 1fr;
-      }
-      section {
-        margin-bottom: 2.5rem;
-      }
-      header {
-        margin-bottom: 2.5rem;
-      }
+      .hero { padding: 3.5rem 1.25rem 4rem; }
+      .hero h1 { font-size: 2.75rem; }
+      section.block { padding: 3.5rem 1.25rem; }
+      .work-card, .project-card { padding: 1.4rem; }
+      .essay { padding: 1rem 1.1rem; }
+      .handwritten-section { padding: 3.5rem 1.25rem; }
     }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div class="wrap">
 
-    <header>
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">Product Leader / AI-Native</span>
       <img class="avatar" src="headshot.jpg" alt="Ian Cowpar" />
       <h1>Ian Cowpar</h1>
       <p class="hero-line">I write the prompts, ship the code, and <span class="accent">own the outcome</span>.</p>
-      <p class="role">Product leader exploring the hidden systems that shape work, trust, adoption, and culture. Compliance-grade is where I learned the work; AI-native is how I do it now.</p>
-      <div class="links">
-        <a href="https://www.linkedin.com/in/ian-cowpar" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
-          </svg>
+      <p class="hero-role">Product leader exploring the hidden systems that shape work, trust, adoption, and culture. Compliance-grade is where I learned the work; AI-native is how I do it now.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:ian.cowpar@gmail.com">Get in touch</a>
+        <a class="btn btn-secondary" href="https://www.linkedin.com/in/ian-cowpar" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
           LinkedIn
         </a>
-        <a href="https://theunofficialleader.substack.com" target="_blank" rel="noopener" aria-label="Substack">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
-          </svg>
+        <a class="btn btn-secondary" href="https://theunofficialleader.substack.com" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
           Substack
         </a>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <section id="manifesto">
-      <p>Stop me if you have seen this happen lately. The team has the right idea. The roadmap is clean. Everyone in the room nods. Then the idea has to survive a translation layer, into a ticket, into a sprint, into someone else's hands, and what ships looks nothing like what was named in the room.</p>
+  <main>
 
-      <p>I have spent most of my career watching that gap. Sometimes it shows up as the distance between what a customer signals and what a team finally hears. Sometimes as the distance between the org chart and the people who actually move work. Sometimes as the distance between thinking and making. AI is collapsing the last one. I write the prompts, ship the code, and own the outcome. That collapse has a name in my writing, Zero-Translation Building, and once you start working inside it the old assumption that ideas have to be translated to be built starts to feel like a cost you no longer have to pay.</p>
+    <section class="block">
+      <span class="label">Manifesto</span>
+      <div class="manifesto">
+        <p>Stop me if you have seen this happen lately. The team has the right idea. The roadmap is clean. Everyone in the room nods. Then the idea has to survive a translation layer, into a ticket, into a sprint, into someone else's hands, and what ships looks nothing like what was named in the room.</p>
 
-      <p>Everyone is worried that AI is flattening the PM curve because everyone has access to the same tools. The premise is right. The conclusion is wrong. The moat is you: your ethics, your thoughts, your approach, your values, your position. <span class="key">No one can replace you.</span></p>
+        <p>I have spent most of my career watching that gap. Sometimes it shows up as the distance between what a customer signals and what a team finally hears. Sometimes as the distance between the org chart and the people who actually move work. Sometimes as the distance between thinking and making. AI is collapsing the last one. I write the prompts, ship the code, and own the outcome. That collapse has a name in my writing, Zero-Translation Building, and once you start working inside it the old assumption that ideas have to be translated to be built starts to feel like a cost you no longer have to pay.</p>
 
-      <p>It is no different from photography or real estate. Hand the same camera to a thousand photographers and you get a thousand different photographs. Hand the same listing to a thousand realtors and you get a thousand different sale prices. The tool is not the differentiator. <span class="key">The person using it is.</span></p>
+        <p>Everyone is worried that AI is flattening the PM curve because everyone has access to the same tools. The premise is right. The conclusion is wrong. The moat is you: your ethics, your thoughts, your approach, your values, your position. <span class="key">No one can replace you.</span></p>
 
-      <p>It does not matter what the industry is. The pattern is always the same, and AI will never change it. <span class="key">Who is the human making the decisions?</span></p>
+        <p>It is no different from photography or real estate. Hand the same camera to a thousand photographers and you get a thousand different photographs. Hand the same listing to a thousand realtors and you get a thousand different sale prices. The tool is not the differentiator. <span class="key">The person using it is.</span></p>
 
-      <p>For as long as humans are the digester and the consumer, the human directing and forming the product remains the moat. You are one of one. <span class="key">There is no other PM like you.</span></p>
+        <p>It does not matter what the industry is. The pattern is always the same, and AI will never change it. <span class="key">Who is the human making the decisions?</span></p>
 
-      <p>I have done that work in places where getting it wrong is not an option. Compliance-grade financial services first, then a $250M ARR HCM platform. Inside both, I built like a founder. When my team needed an AI capability platform, I did not wait for someone to fund it; I built one from scratch with Claude Code and agentic workflows, and internal teams are using it now. Operator rigor and founder instinct are not a contradiction. The first earns you the right to do the second.</p>
+        <p>For as long as humans are the digester and the consumer, the human directing and forming the product remains the moat. You are one of one. <span class="key">There is no other PM like you.</span></p>
 
-      <p>What I am drawn to underneath all of this is the same instinct from different angles. The trust layer beneath a migration. The influence layer beneath an org chart. The adoption layer beneath a tool rollout. The system beneath the visible system. The work I want to keep doing is to build the kind of infrastructure that makes people more visible, more capable, and more confident, the kind that does not show up in a process diagram and decides everything anyway. Leadership in those systems has rarely waited for the title for me. It started in small moments, the kind no one notices until suddenly everyone does.</p>
+        <p>I have done that work in places where getting it wrong is not an option. Compliance-grade financial services first, then a $250M ARR HCM platform. Inside both, I built like a founder. When my team needed an AI capability platform, I did not wait for someone to fund it; I built one from scratch with Claude Code and agentic workflows, and internal teams are using it now. Operator rigor and founder instinct are not a contradiction. The first earns you the right to do the second.</p>
 
-      <p>I am writing this thesis for other PMs as much as for myself. Do not be worried that AI is flattening the curve. Do not be worried that AI is coming for your job. No model can replicate you. <span class="key">You are unrepeatable.</span></p>
+        <p>What I am drawn to underneath all of this is the same instinct from different angles. The trust layer beneath a migration. The influence layer beneath an org chart. The adoption layer beneath a tool rollout. The system beneath the visible system. The work I want to keep doing is to build the kind of infrastructure that makes people more visible, more capable, and more confident, the kind that does not show up in a process diagram and decides everything anyway. Leadership in those systems has rarely waited for the title for me. It started in small moments, the kind no one notices until suddenly everyone does.</p>
 
-      <div class="callout">
-        <p>What I am looking for now is a Lead, Principal, or Group PM seat where the hidden systems get to be the work.</p>
-        <p>That level is where servant leadership and player/coach instincts push AI adoption sideways, across teams, functions, and orgs.</p>
-      </div>
-    </section>
+        <p>I am writing this thesis for other PMs as much as for myself. Do not be worried that AI is flattening the curve. Do not be worried that AI is coming for your job. No model can replicate you. <span class="key">You are unrepeatable.</span></p>
 
-    <section id="writing">
-      <h2 class="section-heading">Writing</h2>
-      <p><a href="https://theunofficialleader.substack.com" target="_blank" rel="noopener"><em>The Unofficial Leader</em></a> is the moat in published form. Every essay, every podcast episode, every Field Note is a record of how I think, in language no model can replicate. Zero-Translation Building, the Network Intelligence Layer, and the gap between when a signal is detected and when the right person finally acts on it all started there. The writing is not a side activity. <span class="key">It is the proof.</span></p>
-
-      <div class="essays">
-        <div class="essay">
-          <a class="essay-title" href="https://theunofficialleader.substack.com/p/what-i-built-when-i-could-finally" target="_blank" rel="noopener">What I Built When I Could Finally Build</a>
-          <p class="essay-tagline">The original Zero-Translation Building piece. AI is collapsing the distance between what you can think and what you can make, and the people working inside that closed distance will define the next decade of product.</p>
-        </div>
-        <div class="essay">
-          <a class="essay-title" href="https://theunofficialleader.substack.com/p/before-the-next-reduction" target="_blank" rel="noopener">Before the Next Reduction</a>
-          <p class="essay-tagline">The Network Intelligence Layer fully formed: the relational operating system beneath the org chart, and what becomes catastrophically visible when a RIF takes it apart.</p>
-        </div>
-        <div class="essay">
-          <a class="essay-title" href="https://theunofficialleader.substack.com/p/listening-is-no-longer-the-hard-part" target="_blank" rel="noopener">Listening Is No Longer the Hard Part</a>
-          <p class="essay-tagline">Listening got easy. Routing what you heard to the right person in time is the actual problem.</p>
-        </div>
-      </div>
-
-      <p>Field Note Vol. 03, below, is the same thinking made visual. Most AI rollouts stall in Layer 2 because Layer 1 was never built, and a new capability cannot survive on top of a missing foundation.</p>
-      <div class="field-note-wrap">
-        <img src="zero-translation-stack.png" alt="How to Build a Zero-Translation Stack: 3 Layers. Layer 1 Shared Foundation: institutional memory, team's voice preserved, zero cold starts. Layer 2 Shared Language: shared prompt patterns, common vocabulary, peer learning loops. Layer 3 Shared Standards: explicit quality norms, encoded learnings, adoption discipline. The layer beneath all three: fidelity." />
-      </div>
-    </section>
-
-    <section id="work">
-      <h2 class="section-heading">Work</h2>
-
-      <div class="work-block">
-        <span class="label">UKG · Senior PM</span>
-        <p>I rebuilt an expert-dependent process into a self-service toolchain and shipped it 0 to 1 in a single product cycle. When the team needed an AI capability platform, I built one from scratch using Claude Code and agentic workflows rather than wait for someone to fund it; internal teams are using it now. I drove federal Payroll-Based Journal compliance delivery across engineering, legal, and customers, and I designed a five-panel observability platform that auto-refreshes daily across four products and tracks adoption, retention, and at-risk accounts at the portfolio level.</p>
-      </div>
-
-      <div class="work-block">
-        <span class="label">Broadridge Financial Solutions · Business Analyst</span>
-        <p>Compliance-grade financial services. My last stretch was driving customer adoption and onboarding for the new omni-channel communications product. The customers were legacy financial services firms, annuities and the like, with end-customer bases that skew older. The product pushed SMS and RCS as the delivery channel for regulated documents like statements and confirms, the kind of paper-by-default workflow nobody in that demographic had ever opted into. Adoption in that environment is not a feature flag. It is a trust transfer. Before that I led 40-plus enterprise client deployments and served as the internal SME on the platform across the full client base. The product got it right because I knew where every edge case lived and which clients would hit them first. That is the kind of pattern recognition you cannot fake and cannot rush.</p>
-      </div>
-    </section>
-
-    <section id="projects">
-      <h2 class="section-heading">Projects</h2>
-      <div class="projects">
-        <div class="card featured">
-          <div class="card-status">Buildathon entry &middot; in progress</div>
-          <h3>Network Intelligence Layer</h3>
-          <p class="what">An interactive Network Intelligence Layer over Lenny Rachitsky's archive.</p>
-          <p>Everyone in the buildathon got the same dataset, so my differentiator could not be the data. The obvious move was to ask Claude for a novel idea on top of the corpus, which is exactly what would generate the same ideas everyone else got. I went a step deeper. I gave Claude the corpus, my Substack archive, and my positioning, and asked it to find an angle that was mine to ship and no one else's, regardless of how good anyone else got with the tools.</p>
-          <p>What came out was the Network Intelligence Layer applied to Lenny's own archive. A graph of the corpus, plus three surfaces over it: Atlas, an interactive map; Lookup, where you paste a product situation and the model returns two contrasting reads and a draft move; Briefing, where you paste an external artifact like a CPO talk or job description and the model returns priorities, agreements and pushbacks grounded in the corpus. The named concept on this page, made real.</p>
-          <div class="stack">Python &middot; FastAPI &middot; Anthropic API &middot; vis-network</div>
-          <a class="repo" href="https://github.com/iancowpar/lennys-contest" target="_blank" rel="noopener">github.com/iancowpar/lennys-contest &rarr;</a>
-        </div>
-
-        <div class="card">
-          <h3>Cold Open</h3>
-          <p class="what">A warm-path job search tool for senior PMs.</p>
-          <p>You start by writing what you bring to an organization, in your own voice. Cold Open reads who has already engaged with that voice across LinkedIn and Substack, lines them up against the open roles you are targeting, and surfaces the warm paths in. Most job search tools are cold. Cold Open is the Network Intelligence Layer applied to a job hunt: it finds the people who already know your work is real, then helps you move on the openings closest to them.</p>
-          <div class="stack">React &middot; localStorage &middot; static deploy</div>
-          <span class="repo-private">Private repo &middot; in development</span>
-        </div>
-
-        <div class="card">
-          <h3>Round Two</h3>
-          <p class="what">A practice-worksheet generator for math teachers.</p>
-          <p>My wife teaches math. She was rebuilding worksheets by hand for students who needed a second pass at problem types they had missed, and at some point I started doing it for her. Round Two exists so she does not need me. Upload a test PDF and it pulls the problem types using Claude, generates five fresh practice problems per type with answers verified by SymPy so the math is actually right, and prints a worksheet with worked examples and an answer key. Zero-Translation Building in miniature: collapse a dependency, hand someone their autonomy back.</p>
-          <div class="stack">Python &middot; Streamlit &middot; Anthropic API &middot; SymPy</div>
-          <a class="repo" href="https://github.com/iancowpar/worksheet-generator" target="_blank" rel="noopener">github.com/iancowpar/worksheet-generator &rarr;</a>
+        <div class="callout">
+          <p>What I am looking for now is a Lead, Principal, or Group PM seat where the hidden systems get to be the work.</p>
+          <p>That level is where servant leadership and player/coach instincts push AI adoption sideways, across teams, functions, and orgs.</p>
         </div>
       </div>
     </section>
 
-    <section class="handwritten-section" aria-label="Closing thesis">
+    <section class="block alt">
+      <div class="inner" style="padding: 0 2rem;">
+        <span class="label">Writing</span>
+        <h2 class="section-heading">The moat in published form.</h2>
+        <p class="section-sub">Every essay, every podcast episode, every Field Note is a record of how I think, in language no model can replicate.</p>
+
+        <div class="writing-grid">
+          <div class="writing-lead">
+            <p><a href="https://theunofficialleader.substack.com" target="_blank" rel="noopener"><em>The Unofficial Leader</em></a> is where Zero-Translation Building, the Network Intelligence Layer, and the gap between when a signal is detected and when the right person finally acts on it all started. The writing is not a side activity. <span class="key">It is the proof.</span></p>
+            <p>Field Note Vol. 03, opposite, is the same thinking made visual. Most AI rollouts stall in Layer 2 because Layer 1 was never built, and a new capability cannot survive on top of a missing foundation.</p>
+
+            <div class="essays" style="margin-top: 2rem;">
+              <a class="essay" href="https://theunofficialleader.substack.com/p/what-i-built-when-i-could-finally" target="_blank" rel="noopener">
+                <div class="essay-title">What I Built When I Could Finally Build</div>
+                <p class="essay-tagline">The original Zero-Translation Building piece. AI is collapsing the distance between what you can think and what you can make.</p>
+              </a>
+              <a class="essay" href="https://theunofficialleader.substack.com/p/before-the-next-reduction" target="_blank" rel="noopener">
+                <div class="essay-title">Before the Next Reduction</div>
+                <p class="essay-tagline">The Network Intelligence Layer, the relational operating system beneath the org chart, and what becomes catastrophically visible when a RIF takes it apart.</p>
+              </a>
+              <a class="essay" href="https://theunofficialleader.substack.com/p/listening-is-no-longer-the-hard-part" target="_blank" rel="noopener">
+                <div class="essay-title">Listening Is No Longer the Hard Part</div>
+                <p class="essay-tagline">Listening got easy. Routing what you heard to the right person in time is the actual problem.</p>
+              </a>
+            </div>
+          </div>
+          <div class="field-note-wrap">
+            <img src="zero-translation-stack.png" alt="How to Build a Zero-Translation Stack: 3 Layers." />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <span class="label">Work</span>
+      <h2 class="section-heading">Built where getting it wrong was not an option.</h2>
+      <p class="section-sub">Compliance-grade enterprise as the proving ground. Founder instinct inside it.</p>
+
+      <div class="work-grid">
+        <div class="work-card">
+          <span class="role-label">UKG &middot; Senior PM</span>
+          <p>I rebuilt an expert-dependent process into a self-service toolchain and shipped it 0 to 1 in a single product cycle. When the team needed an AI capability platform, I built one from scratch using Claude Code and agentic workflows rather than wait for someone to fund it; internal teams are using it now. I drove federal Payroll-Based Journal compliance delivery across engineering, legal, and customers, and I designed a five-panel observability platform that auto-refreshes daily across four products and tracks adoption, retention, and at-risk accounts at the portfolio level.</p>
+        </div>
+
+        <div class="work-card">
+          <span class="role-label">Broadridge Financial Solutions &middot; Business Analyst</span>
+          <p>Compliance-grade financial services. My last stretch was driving customer adoption and onboarding for the new omni-channel communications product. The customers were legacy financial services firms, annuities and the like, with end-customer bases that skew older. The product pushed SMS and RCS as the delivery channel for regulated documents like statements and confirms, the kind of paper-by-default workflow nobody in that demographic had ever opted into. <span class="key">Adoption in that environment is not a feature flag. It is a trust transfer.</span> Before that I led 40-plus enterprise client deployments and served as the internal SME on the platform across the full client base.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block alt">
+      <div class="inner" style="padding: 0 2rem;">
+        <span class="label">Projects</span>
+        <h2 class="section-heading">Shipping in public.</h2>
+        <p class="section-sub">Three current builds. The featured one is in active development.</p>
+
+        <div class="projects-grid">
+          <div class="project-card featured">
+            <div class="project-status">Buildathon entry &middot; in progress</div>
+            <h3 class="project-title">Network Intelligence Layer</h3>
+            <p class="project-what">An interactive Network Intelligence Layer over Lenny Rachitsky's archive.</p>
+            <p class="project-body">Everyone in the buildathon got the same dataset, so my differentiator could not be the data. The obvious move was to ask Claude for a novel idea on top of the corpus, which is exactly what would generate the same ideas everyone else got. I went a step deeper. I gave Claude the corpus, my Substack archive, and my positioning, and asked it to find an angle that was mine to ship and no one else's, regardless of how good anyone else got with the tools.</p>
+            <p class="project-body">What came out was the Network Intelligence Layer applied to Lenny's own archive. A graph of the corpus, plus three surfaces over it: Atlas, an interactive map; Lookup, where you paste a product situation and the model returns two contrasting reads and a draft move; Briefing, where you paste an external artifact like a CPO talk or job description and the model returns priorities, agreements and pushbacks grounded in the corpus. The named concept on this page, made real.</p>
+            <div class="stack">Python &middot; FastAPI &middot; Anthropic API &middot; vis-network</div>
+            <a class="repo-link" href="https://github.com/iancowpar/lennys-contest" target="_blank" rel="noopener">github.com/iancowpar/lennys-contest &rarr;</a>
+          </div>
+
+          <div class="project-card">
+            <h3 class="project-title">Cold Open</h3>
+            <p class="project-what">A warm-path job search tool for senior PMs.</p>
+            <p class="project-body">You start by writing what you bring to an organization, in your own voice. Cold Open reads who has already engaged with that voice across LinkedIn and Substack, lines them up against the open roles you are targeting, and surfaces the warm paths in. Most job search tools are cold. Cold Open is the Network Intelligence Layer applied to a job hunt: it finds the people who already know your work is real, then helps you move on the openings closest to them.</p>
+            <div class="stack">React &middot; localStorage &middot; static deploy</div>
+            <span class="repo-private">Private repo &middot; in development</span>
+          </div>
+
+          <div class="project-card">
+            <h3 class="project-title">Round Two</h3>
+            <p class="project-what">A practice-worksheet generator for math teachers.</p>
+            <p class="project-body">My wife teaches math. She was rebuilding worksheets by hand for students who needed a second pass at problem types they had missed, and at some point I started doing it for her. Round Two exists so she does not need me. Upload a test PDF and it pulls the problem types using Claude, generates five fresh practice problems per type with answers verified by SymPy so the math is actually right, and prints a worksheet with worked examples and an answer key. Zero-Translation Building in miniature: collapse a dependency, hand someone their autonomy back.</p>
+            <div class="stack">Python &middot; Streamlit &middot; Anthropic API &middot; SymPy</div>
+            <a class="repo-link" href="https://github.com/iancowpar/worksheet-generator" target="_blank" rel="noopener">github.com/iancowpar/worksheet-generator &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="handwritten-section">
       <div class="handwritten">
         <p>Don't be worried that AI is flattening the PM curve. Don't be worried that AI is coming for your job. No model can replicate you.</p>
         <p>You are defensible. You are unrepeatable. You are <span class="key-hand">one of one by design</span>.</p>
       </div>
     </section>
 
-    <footer>
-      <a href="mailto:ian.cowpar@gmail.com">ian.cowpar@gmail.com</a>
-      <span class="dot">·</span>
-      <a href="https://www.linkedin.com/in/ian-cowpar" target="_blank" rel="noopener">LinkedIn</a>
-      <span class="dot">·</span>
-      <span>&copy; 2026</span>
-    </footer>
+  </main>
 
-  </div>
+  <footer>
+    <a href="mailto:ian.cowpar@gmail.com">ian.cowpar@gmail.com</a>
+    <span class="dot">·</span>
+    <a href="https://www.linkedin.com/in/ian-cowpar" target="_blank" rel="noopener">LinkedIn</a>
+    <span class="dot">·</span>
+    <a href="https://theunofficialleader.substack.com" target="_blank" rel="noopener">Substack</a>
+    <span class="dot">·</span>
+    <span>&copy; 2026</span>
+  </footer>
+
 </body>
 </html>
