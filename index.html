@@ -185,6 +185,11 @@
       display: flex;
       flex-direction: column;
     }
+    .card.featured {
+      grid-column: 1 / -1;
+      background: var(--accent-soft);
+      border-color: var(--accent);
+    }
     .card h3 {
       font-size: 1.0625rem;
       font-weight: 700;
@@ -203,10 +208,46 @@
       line-height: 1.55;
       margin-bottom: 1rem;
     }
+    .card-status {
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      text-transform: uppercase;
+    }
+    .card-status::before {
+      content: '';
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .stack {
+      font-family: 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.85rem;
+    }
     .card .repo {
       margin-top: auto;
       font-size: 0.875rem;
       font-weight: 500;
+    }
+    .card .repo-private {
+      margin-top: auto;
+      font-size: 0.8125rem;
+      color: var(--muted);
+      font-style: italic;
     }
 
     /* Footer */
@@ -322,17 +363,28 @@
     <section id="projects">
       <h2 class="section-heading">Projects</h2>
       <div class="projects">
+        <div class="card featured">
+          <div class="card-status">Lenny &times; Replit Buildathon &middot; in progress</div>
+          <h3>Network Intelligence Layer</h3>
+          <p class="what">An interactive Network Intelligence Layer over Lenny Rachitsky's archive.</p>
+          <p>I extracted a graph from Lenny's open podcast and newsletter archive, then built three runtime surfaces over it: Atlas, an interactive map of the corpus; Lookup, where you paste a product situation and the model returns two contrasting reads and a draft move; Briefing, where you paste an external artifact like a CPO talk or job description and the model returns priorities, agreements and pushbacks grounded in the corpus, and the questions it would ask next. The named concept on this page, made real.</p>
+          <div class="stack">Python &middot; FastAPI &middot; Anthropic API &middot; vis-network</div>
+          <a class="repo" href="https://github.com/iancowpar/lennys-contest" target="_blank" rel="noopener">github.com/iancowpar/lennys-contest &rarr;</a>
+        </div>
+
         <div class="card">
           <h3>Cold Open</h3>
           <p class="what">A warm-path job search tool for senior PMs.</p>
           <p>You start by writing what you bring to an organization, in your own voice. Cold Open reads who has already engaged with that voice across LinkedIn and Substack, lines them up against the open roles you are targeting, and surfaces the warm paths in. Most job search tools are cold. Cold Open is the Network Intelligence Layer applied to a job hunt: it finds the people who already know your work is real, then helps you move on the openings closest to them.</p>
-          <a class="repo" href="https://github.com/iancowpar/cold-open" target="_blank" rel="noopener">github.com/iancowpar/cold-open &rarr;</a>
+          <div class="stack">React &middot; localStorage &middot; static deploy</div>
+          <span class="repo-private">Private repo &middot; in development</span>
         </div>
 
         <div class="card">
           <h3>Round Two</h3>
           <p class="what">A practice-worksheet generator for math teachers.</p>
           <p>My wife teaches math. She was rebuilding worksheets by hand for students who needed a second pass at problem types they had missed, and at some point I started doing it for her. Round Two exists so she does not need me. Upload a test PDF and it pulls the problem types using Claude, generates five fresh practice problems per type with answers verified by SymPy so the math is actually right, and prints a worksheet with worked examples and an answer key. Zero-Translation Building in miniature: collapse a dependency, hand someone their autonomy back.</p>
+          <div class="stack">Python &middot; Streamlit &middot; Anthropic API &middot; SymPy</div>
           <a class="repo" href="https://github.com/iancowpar/worksheet-generator" target="_blank" rel="noopener">github.com/iancowpar/worksheet-generator &rarr;</a>
         </div>
       </div>
