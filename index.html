@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,500&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -372,19 +372,19 @@
     }
     .handwritten {
       font-family: 'Caveat', 'Bradley Hand', cursive;
-      font-weight: 700;
-      font-size: 2.35rem;
-      line-height: 1.45;
+      font-weight: 500;
+      font-size: 2rem;
+      line-height: 1.5;
       color: var(--text);
       max-width: 640px;
       margin: 0 auto;
-      letter-spacing: 0.005em;
+      letter-spacing: 0.01em;
     }
     .handwritten p {
-      margin: 0 0 0.35rem;
+      margin: 0;
     }
-    .handwritten p:last-child {
-      margin-bottom: 0;
+    .handwritten p + p {
+      margin-top: 1.5rem;
     }
     .handwritten .key-hand {
       color: var(--accent);
@@ -403,8 +403,11 @@
         font-size: 1.25rem;
       }
       .handwritten {
-        font-size: 1.6rem;
-        line-height: 1.4;
+        font-size: 1.45rem;
+        line-height: 1.45;
+      }
+      .handwritten p + p {
+        margin-top: 1.1rem;
       }
       .handwritten-section {
         margin: 3rem 0 0.5rem;
@@ -556,12 +559,8 @@
 
     <section class="handwritten-section" aria-label="Closing thesis">
       <div class="handwritten">
-        <p>Don't be worried that AI is flattening the PM curve.</p>
-        <p>Don't be worried that AI is coming for your job.</p>
-        <p>No model can replicate you.</p>
-        <p>You are defensible.</p>
-        <p>You are unrepeatable.</p>
-        <p>You are <span class="key-hand">one of one by design</span>.</p>
+        <p>Don't be worried that AI is flattening the PM curve. Don't be worried that AI is coming for your job. No model can replicate you.</p>
+        <p>You are defensible. You are unrepeatable. You are <span class="key-hand">one of one by design</span>.</p>
       </div>
     </section>
 

@@ -452,19 +452,18 @@
       color: var(--text-dark);
     }
     .handwritten {
-      max-width: 720px;
+      max-width: 640px;
       margin: 0 auto;
       font-family: 'Caveat', 'Bradley Hand', cursive;
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      font-weight: 700;
-      line-height: 1.45;
+      font-size: clamp(1.45rem, 2.4vw, 2.05rem);
+      font-weight: 500;
+      line-height: 1.5;
       color: var(--text-dark);
+      letter-spacing: 0.01em;
     }
-    .handwritten p { margin: 0 0 0.4rem; }
-    .handwritten p:last-child { margin: 0; }
+    .handwritten p { margin: 0; }
+    .handwritten p + p { margin-top: 1.5rem; }
     .handwritten .key-hand { color: var(--accent-bright); }
-
-    @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap');
 
     /* FOOTER -------------------------------------------------- */
     footer {
@@ -490,7 +489,7 @@
       .handwritten-section { padding: 3.5rem 1.25rem; }
     }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
 
@@ -634,12 +633,8 @@
 
     <section class="handwritten-section">
       <div class="handwritten">
-        <p>Don't be worried that AI is flattening the PM curve.</p>
-        <p>Don't be worried that AI is coming for your job.</p>
-        <p>No model can replicate you.</p>
-        <p>You are defensible.</p>
-        <p>You are unrepeatable.</p>
-        <p>You are <span class="key-hand">one of one by design</span>.</p>
+        <p>Don't be worried that AI is flattening the PM curve. Don't be worried that AI is coming for your job. No model can replicate you.</p>
+        <p>You are defensible. You are unrepeatable. You are <span class="key-hand">one of one by design</span>.</p>
       </div>
     </section>
 
