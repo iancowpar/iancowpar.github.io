@@ -36,7 +36,7 @@
     }
 
     .wrap {
-      max-width: 760px;
+      max-width: 880px;
       margin: 0 auto;
       padding: 4.5rem 2rem 4rem;
     }
@@ -61,26 +61,61 @@
     header {
       margin-bottom: 3.5rem;
     }
+    .header-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      padding: 0.35rem 0.65rem 0.35rem 0.6rem;
+      background: var(--accent-soft);
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+    .header-status::before {
+      content: '';
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
     .avatar {
-      width: 72px;
-      height: 72px;
-      border-radius: 14px;
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
       object-fit: cover;
       display: block;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
       filter: grayscale(100%);
     }
     header h1 {
-      font-size: 2.4rem;
+      font-size: 3.2rem;
       font-weight: 800;
-      letter-spacing: -0.025em;
-      margin-bottom: 0.6rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .hero-line {
+      font-size: 1.5rem;
+      line-height: 1.35;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      color: var(--text);
+      margin: 0 0 1.25rem;
+      max-width: 720px;
+    }
+    .hero-line .accent {
+      color: var(--accent);
     }
     .role {
-      font-size: 1.0625rem;
+      font-size: 1rem;
       color: var(--muted);
-      margin: 0 0 1.25rem;
-      max-width: 620px;
+      margin: 0 0 1.5rem;
+      max-width: 640px;
       line-height: 1.55;
     }
     .links {
@@ -270,22 +305,35 @@
       color: var(--border);
     }
 
+    /* Inline emphasis: bold + accent for thesis spine */
+    .key {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
     /* Mobile */
     @media (max-width: 640px) {
       .wrap {
         padding: 2.75rem 1.25rem 3rem;
       }
       header h1 {
-        font-size: 2rem;
+        font-size: 2.1rem;
+      }
+      .hero-line {
+        font-size: 1.2rem;
       }
       .role {
-        font-size: 1rem;
+        font-size: 0.95rem;
       }
       .avatar {
         width: 60px;
         height: 60px;
         border-radius: 12px;
         margin-bottom: 1rem;
+      }
+      .header-status {
+        font-size: 0.68rem;
+        margin-bottom: 1.1rem;
       }
       .projects {
         grid-template-columns: 1fr;
@@ -303,9 +351,11 @@
   <div class="wrap">
 
     <header>
+      <div class="header-status">Shipping in Lenny &times; Replit Buildathon</div>
       <img class="avatar" src="headshot.jpg" alt="Ian Cowpar" />
       <h1>Ian Cowpar</h1>
-      <p class="role">Product leader exploring the hidden systems that shape work, trust, adoption, and culture. Compliance-grade is where I learned the work; AI-native is how I do it now. I write the prompts, ship the code, and own the outcome.</p>
+      <p class="hero-line">I write the prompts, ship the code, and <span class="accent">own the outcome</span>.</p>
+      <p class="role">Product leader exploring the hidden systems that shape work, trust, adoption, and culture. Compliance-grade is where I learned the work; AI-native is how I do it now.</p>
       <div class="links">
         <a href="https://www.linkedin.com/in/ian-cowpar" target="_blank" rel="noopener" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -327,19 +377,19 @@
 
       <p>I have spent most of my career watching that gap. Sometimes it shows up as the distance between what a customer signals and what a team finally hears. Sometimes as the distance between the org chart and the people who actually move work. Sometimes as the distance between thinking and making. AI is collapsing the last one. I write the prompts, ship the code, and own the outcome. That collapse has a name in my writing, Zero-Translation Building, and once you start working inside it the old assumption that ideas have to be translated to be built starts to feel like a cost you no longer have to pay.</p>
 
-      <p>Everyone is worried that AI is flattening the PM curve because everyone has access to the same tools. The premise is right. The conclusion is wrong. The moat is you: your ethics, your thoughts, your approach, your values, your position. No one can replace you.</p>
+      <p>Everyone is worried that AI is flattening the PM curve because everyone has access to the same tools. The premise is right. The conclusion is wrong. The moat is you: your ethics, your thoughts, your approach, your values, your position. <span class="key">No one can replace you.</span></p>
 
-      <p>It is no different from photography or real estate. Hand the same camera to a thousand photographers and you get a thousand different photographs. Hand the same listing to a thousand realtors and you get a thousand different sale prices. The tool is not the differentiator. The person using it is.</p>
+      <p>It is no different from photography or real estate. Hand the same camera to a thousand photographers and you get a thousand different photographs. Hand the same listing to a thousand realtors and you get a thousand different sale prices. The tool is not the differentiator. <span class="key">The person using it is.</span></p>
 
-      <p>It does not matter what the industry is. The pattern is always the same, and AI will never change it. Who is the human making the decisions?</p>
+      <p>It does not matter what the industry is. The pattern is always the same, and AI will never change it. <span class="key">Who is the human making the decisions?</span></p>
 
-      <p>For as long as humans are the digester and the consumer, the human directing and forming the product remains the moat. You are one of one. There is no other PM like you.</p>
+      <p>For as long as humans are the digester and the consumer, the human directing and forming the product remains the moat. You are one of one. <span class="key">There is no other PM like you.</span></p>
 
       <p>I have done that work in places where getting it wrong is not an option. Compliance-grade financial services first, then a $250M ARR HCM platform. Inside both, I built like a founder. When my team needed an AI capability platform, I did not wait for someone to fund it; I built one from scratch with Claude Code and agentic workflows, and internal teams are using it now. Operator rigor and founder instinct are not a contradiction. The first earns you the right to do the second.</p>
 
       <p>What I am drawn to underneath all of this is the same instinct from different angles. The trust layer beneath a migration. The influence layer beneath an org chart. The adoption layer beneath a tool rollout. The system beneath the visible system. The work I want to keep doing is to build the kind of infrastructure that makes people more visible, more capable, and more confident, the kind that does not show up in a process diagram and decides everything anyway. Leadership in those systems has rarely waited for the title for me. It started in small moments, the kind no one notices until suddenly everyone does.</p>
 
-      <p>I am writing this thesis for other PMs as much as for myself. Do not be worried that AI is flattening the curve. Do not be worried that AI is coming for your job. No model can replicate you. You are unrepeatable.</p>
+      <p>I am writing this thesis for other PMs as much as for myself. Do not be worried that AI is flattening the curve. Do not be worried that AI is coming for your job. No model can replicate you. <span class="key">You are unrepeatable.</span></p>
 
       <div class="callout">
         <p>What I am looking for now is a Lead, Principal, or Group PM seat where the hidden systems get to be the work.</p>
