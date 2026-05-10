@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,500&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -364,6 +364,32 @@
       font-weight: 600;
     }
 
+    /* Handwritten close */
+    .handwritten-section {
+      margin: 4.5rem 0 1rem;
+      padding: 2.75rem 0 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .handwritten {
+      font-family: 'Caveat', 'Bradley Hand', cursive;
+      font-weight: 700;
+      font-size: 2.35rem;
+      line-height: 1.45;
+      color: var(--text);
+      max-width: 640px;
+      margin: 0 auto;
+      letter-spacing: 0.005em;
+    }
+    .handwritten p {
+      margin: 0 0 0.35rem;
+    }
+    .handwritten p:last-child {
+      margin-bottom: 0;
+    }
+    .handwritten .key-hand {
+      color: var(--accent);
+    }
+
     /* Mobile */
     @media (max-width: 640px) {
       .wrap {
@@ -375,6 +401,14 @@
       }
       .hero-line {
         font-size: 1.25rem;
+      }
+      .handwritten {
+        font-size: 1.6rem;
+        line-height: 1.4;
+      }
+      .handwritten-section {
+        margin: 3rem 0 0.5rem;
+        padding: 2rem 0 1.75rem;
       }
       .role {
         font-size: 0.95rem;
@@ -517,6 +551,17 @@
           <div class="stack">Python &middot; Streamlit &middot; Anthropic API &middot; SymPy</div>
           <a class="repo" href="https://github.com/iancowpar/worksheet-generator" target="_blank" rel="noopener">github.com/iancowpar/worksheet-generator &rarr;</a>
         </div>
+      </div>
+    </section>
+
+    <section class="handwritten-section" aria-label="Closing thesis">
+      <div class="handwritten">
+        <p>Don't be worried that AI is flattening the PM curve.</p>
+        <p>Don't be worried that AI is coming for your job.</p>
+        <p>No model can replicate you.</p>
+        <p>You are defensible.</p>
+        <p>You are unrepeatable.</p>
+        <p>You are <span class="key-hand">one of one by design</span>.</p>
       </div>
     </section>
 
