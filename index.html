@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,500&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -94,19 +94,25 @@
       filter: grayscale(100%);
     }
     header h1 {
-      font-size: 3.2rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 1rem;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 4.25rem;
+      font-weight: 900;
+      font-variation-settings: 'opsz' 144, 'SOFT' 30;
+      letter-spacing: -0.035em;
+      line-height: 1.02;
+      margin-bottom: 1.25rem;
     }
     .hero-line {
-      font-size: 1.5rem;
-      line-height: 1.35;
-      font-weight: 600;
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-size: 1.7rem;
+      line-height: 1.3;
+      font-weight: 500;
+      font-variation-settings: 'opsz' 60;
       letter-spacing: -0.015em;
       color: var(--text);
-      margin: 0 0 1.25rem;
-      max-width: 720px;
+      margin: 0 0 1.5rem;
+      max-width: 760px;
     }
     .hero-line .accent {
       color: var(--accent);
@@ -317,10 +323,11 @@
         padding: 2.75rem 1.25rem 3rem;
       }
       header h1 {
-        font-size: 2.1rem;
+        font-size: 2.5rem;
+        line-height: 1.05;
       }
       .hero-line {
-        font-size: 1.2rem;
+        font-size: 1.25rem;
       }
       .role {
         font-size: 0.95rem;
