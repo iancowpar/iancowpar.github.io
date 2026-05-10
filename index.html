@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ian Cowpar</title>
+  <meta name="description" content="Senior product manager. AI-native by practice. I write the prompts, ship the code, and own the outcome." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a2e;
+      --muted: #5a5a72;
+      --accent: #2E5BBA;
+      --border: #e4e7ef;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 5rem 2rem 4rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 4rem;
+    }
+    header h1 {
+      font-size: 3.4rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+    }
+    .role {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin: 0 0 1.5rem;
+      max-width: 620px;
+    }
+    .links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .links a:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .links svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 4rem;
+    }
+    section p {
+      margin: 0 0 1.25rem;
+    }
+    section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .weighted {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--text);
+      margin-top: 2rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--border);
+      line-height: 1.45;
+    }
+
+    /* Work */
+    .work-block {
+      margin-bottom: 2.5rem;
+    }
+    .work-block:last-child {
+      margin-bottom: 0;
+    }
+    .label {
+      display: block;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    /* Section heading */
+    .section-heading {
+      font-size: 1.35rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    /* Projects */
+    .projects {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+    }
+    .card .what {
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.85rem;
+    }
+    .card p {
+      color: var(--muted);
+      font-size: 0.97rem;
+      margin-bottom: 1rem;
+    }
+    .card .repo {
+      margin-top: auto;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.88rem;
+      color: var(--muted);
+      text-align: center;
+    }
+    footer a {
+      color: var(--muted);
+    }
+    footer a:hover {
+      color: var(--accent);
+    }
+    footer .dot {
+      margin: 0 0.6rem;
+      color: var(--border);
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      .wrap {
+        padding: 3rem 1.4rem 3rem;
+      }
+      header h1 {
+        font-size: 2.4rem;
+      }
+      .role {
+        font-size: 1rem;
+      }
+      .projects {
+        grid-template-columns: 1fr;
+      }
+      .weighted {
+        font-size: 1.1rem;
+      }
+      section {
+        margin-bottom: 3rem;
+      }
+      header {
+        margin-bottom: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <h1>Ian Cowpar</h1>
+      <p class="role">Senior product manager. AI-native by practice. I write the prompts, ship the code, and own the outcome.</p>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/ian-cowpar" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+          </svg>
+          LinkedIn
+        </a>
+        <a href="https://theunofficialleader.substack.com" target="_blank" rel="noopener" aria-label="Substack">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+          </svg>
+          Substack
+        </a>
+      </div>
+    </header>
+
+    <section id="manifesto">
+      <p>Most product work still moves through a translation layer. Someone has the idea, someone else builds it, and the gap between the two decides what actually ships. AI is collapsing that gap. I call the new shape Zero-Translation Building: I write the prompts, ship the code, and own the outcome. No handoff. No telephone game. The distance between thinking and making is closing, and the people who learn to work inside that closed distance are going to define the next decade of product.</p>
+
+      <p>I have been an unofficial leader for most of my career. The kind who builds the thing the team needs before anyone is told to build it, and who carries the system in their head whether or not it shows up on the org chart. Title comes later. The work comes first.</p>
+
+      <p>Ten years of compliance-grade delivery at a financial services firm taught me what it costs when software gets it wrong. Two years of enterprise PM at a $250M ARR HCM platform taught me how to ship 0 to 1 inside a system that was not built for it. Both lessons travel.</p>
+
+      <p class="weighted">I am looking for a Lead, Principal, or Group PM seat where the work is real.</p>
+    </section>
+
+    <section id="work">
+      <h2 class="section-heading">Work</h2>
+
+      <div class="work-block">
+        <span class="label">UKG · Senior PM · Jun 2024 to Apr 2026</span>
+        <p>I rebuilt an expert-dependent process into a self-service toolchain and shipped it 0 to 1 in a single product cycle. When the team needed an AI capability platform, I built one from scratch using Claude Code and agentic workflows rather than waiting for someone to fund it. I drove federal Payroll-Based Journal compliance delivery across engineering, legal, and customers, and I designed a five-panel observability platform that auto-refreshes daily across four products and tracks adoption, retention, and at-risk accounts at the portfolio level.</p>
+      </div>
+
+      <div class="work-block">
+        <span class="label">Broadridge Financial Solutions · Business Analyst · 2006 to 2024</span>
+        <p>Almost two decades inside compliance-grade financial services, the last ten years as the internal SME on an omni-channel communications platform. I led 40-plus enterprise client deployments and served as the product authority across the full client base for most of that decade. The product got it right because I knew where every edge case lived and which clients would hit them first. That is the kind of pattern recognition you cannot fake and cannot rush.</p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-heading">Projects</h2>
+      <div class="projects">
+        <div class="card">
+          <h3>Cold Open</h3>
+          <p class="what">Job search intelligence for senior PMs.</p>
+          <p>Tracks target companies, builds research dossiers, manages outreach across five status states from Researched through Closed, and surfaces warm leads. Pure localStorage, no backend, ships as a static React app. This is the tool I used to run my own search.</p>
+          <a class="repo" href="https://github.com/iancowpar/cold-open" target="_blank" rel="noopener">github.com/iancowpar/cold-open &rarr;</a>
+        </div>
+
+        <div class="card">
+          <h3>Round Two</h3>
+          <p class="what">A Streamlit app for special-education math teachers.</p>
+          <p>Upload a test PDF, and Round Two extracts the problem types using Claude, generates five fresh practice problems per type with answers verified algebraically by SymPy, and renders a print-ready worksheet with worked examples and an answer key. It closes a real gap: teachers needed a fast way to give students a second chance without rebuilding worksheets from scratch.</p>
+          <a class="repo" href="https://github.com/iancowpar/worksheet-generator" target="_blank" rel="noopener">github.com/iancowpar/worksheet-generator &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="writing">
+      <h2 class="section-heading">Writing</h2>
+      <p>I publish <a href="https://theunofficialleader.substack.com" target="_blank" rel="noopener"><em>The Unofficial Leader</em></a> weekly on AI-native product development, shipping culture, and the systems beneath the org chart. It is where I named Zero-Translation Building and where I keep working out what AI is actually doing to the way teams build.</p>
+    </section>
+
+    <footer>
+      <a href="mailto:ian.cowpar@gmail.com">ian.cowpar@gmail.com</a>
+      <span class="dot">·</span>
+      <a href="https://www.linkedin.com/in/ian-cowpar" target="_blank" rel="noopener">LinkedIn</a>
+      <span class="dot">·</span>
+      <span>&copy; 2026</span>
+    </footer>
+
+  </div>
+</body>
+</html>
