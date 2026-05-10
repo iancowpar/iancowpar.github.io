@@ -8,15 +8,17 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #ffffff;
-      --text: #1a1a2e;
-      --muted: #5a5a72;
+      --bg: #FAFAF7;
+      --surface: #ffffff;
+      --text: #2f3437;
+      --muted: #6b6f76;
       --accent: #2E5BBA;
-      --border: #e4e7ef;
+      --accent-soft: #eef3fc;
+      --border: #ececec;
     }
 
     * { box-sizing: border-box; }
@@ -27,16 +29,16 @@
       background: var(--bg);
       color: var(--text);
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      font-size: 17px;
-      line-height: 1.65;
+      font-size: 16px;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
     .wrap {
-      max-width: 800px;
+      max-width: 760px;
       margin: 0 auto;
-      padding: 5rem 2rem 4rem;
+      padding: 4.5rem 2rem 4rem;
     }
 
     a {
@@ -49,35 +51,37 @@
     }
 
     h1, h2, h3 {
-      font-family: 'Playfair Display', Georgia, serif;
       font-weight: 700;
-      line-height: 1.2;
+      line-height: 1.25;
       margin: 0;
+      letter-spacing: -0.015em;
     }
 
     /* Header */
     header {
-      margin-bottom: 4rem;
+      margin-bottom: 3.5rem;
     }
     .avatar {
-      width: 88px;
-      height: 88px;
-      border-radius: 50%;
+      width: 72px;
+      height: 72px;
+      border-radius: 14px;
       object-fit: cover;
       display: block;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
       filter: grayscale(100%);
     }
     header h1 {
-      font-size: 3.4rem;
-      letter-spacing: -0.01em;
-      margin-bottom: 0.5rem;
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.6rem;
     }
     .role {
-      font-size: 1.1rem;
+      font-size: 1.0625rem;
       color: var(--muted);
-      margin: 0 0 1.5rem;
+      margin: 0 0 1.25rem;
       max-width: 620px;
+      line-height: 1.55;
     }
     .links {
       display: flex;
@@ -104,29 +108,31 @@
 
     /* Sections */
     section {
-      margin-bottom: 4rem;
+      margin-bottom: 3rem;
     }
     section p {
-      margin: 0 0 1.25rem;
+      margin: 0 0 1.1rem;
     }
     section p:last-child {
       margin-bottom: 0;
     }
 
-    .weighted {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.25rem;
-      font-style: italic;
+    /* Notion-style callout */
+    .callout {
+      background: var(--accent-soft);
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+      padding: 1.1rem 1.25rem;
+      margin-top: 1.75rem;
       color: var(--text);
-      margin-top: 2rem;
-      padding-top: 1.75rem;
-      border-top: 1px solid var(--border);
-      line-height: 1.45;
+      font-size: 1rem;
+      line-height: 1.55;
     }
-    .weighted + .weighted {
-      border-top: none;
-      padding-top: 0;
-      margin-top: 1rem;
+    .callout p {
+      margin: 0;
+    }
+    .callout p + p {
+      margin-top: 0.75rem;
     }
 
     /* Field note */
@@ -143,7 +149,7 @@
 
     /* Work */
     .work-block {
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
     .work-block:last-child {
       margin-bottom: 0;
@@ -151,17 +157,17 @@
     .label {
       display: block;
       font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 0.6rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 0.4rem;
     }
 
     /* Section heading */
     .section-heading {
-      font-size: 1.35rem;
-      margin-bottom: 1.5rem;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 1.1rem;
       letter-spacing: -0.01em;
     }
 
@@ -169,41 +175,46 @@
     .projects {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      gap: 1rem;
     }
     .card {
+      background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 1.75rem;
+      border-radius: 8px;
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
     }
     .card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.6rem;
+      font-size: 1.0625rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
     }
     .card .what {
       font-weight: 500;
       color: var(--text);
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
     }
     .card p {
       color: var(--muted);
-      font-size: 0.97rem;
+      font-size: 0.9375rem;
+      line-height: 1.55;
       margin-bottom: 1rem;
     }
     .card .repo {
       margin-top: auto;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       font-weight: 500;
     }
 
     /* Footer */
     footer {
-      margin-top: 5rem;
-      padding-top: 2rem;
+      margin-top: 4rem;
+      padding-top: 1.5rem;
       border-top: 1px solid var(--border);
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       color: var(--muted);
       text-align: center;
     }
@@ -221,30 +232,28 @@
     /* Mobile */
     @media (max-width: 640px) {
       .wrap {
-        padding: 3rem 1.4rem 3rem;
+        padding: 2.75rem 1.25rem 3rem;
       }
       header h1 {
-        font-size: 2.4rem;
+        font-size: 2rem;
       }
       .role {
         font-size: 1rem;
       }
       .avatar {
-        width: 72px;
-        height: 72px;
-        margin-bottom: 1.25rem;
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        margin-bottom: 1rem;
       }
       .projects {
         grid-template-columns: 1fr;
       }
-      .weighted {
-        font-size: 1.1rem;
-      }
       section {
-        margin-bottom: 3rem;
+        margin-bottom: 2.5rem;
       }
       header {
-        margin-bottom: 3rem;
+        margin-bottom: 2.5rem;
       }
     }
   </style>
@@ -281,8 +290,10 @@
 
       <p>What I am drawn to underneath all of this is the same instinct from different angles. The trust layer beneath a migration. The influence layer beneath an org chart. The adoption layer beneath a tool rollout. The system beneath the visible system. The work I want to keep doing is to build the kind of infrastructure that makes people more visible, more capable, and more confident, the kind that does not show up in a process diagram and decides everything anyway. Leadership in those systems has rarely waited for the title for me. It started in small moments, the kind no one notices until suddenly everyone does.</p>
 
-      <p class="weighted">What I am looking for now is a Lead, Principal, or Group PM seat where the hidden systems get to be the work.</p>
-      <p class="weighted">That level is where servant leadership and player/coach instincts push AI adoption sideways, across teams, functions, and orgs.</p>
+      <div class="callout">
+        <p>What I am looking for now is a Lead, Principal, or Group PM seat where the hidden systems get to be the work.</p>
+        <p>That level is where servant leadership and player/coach instincts push AI adoption sideways, across teams, functions, and orgs.</p>
+      </div>
     </section>
 
     <section id="approach">
