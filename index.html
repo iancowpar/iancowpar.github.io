@@ -443,6 +443,26 @@
       color: var(--text-light-muted);
     }
 
+    /* HANDWRITTEN CALLOUTS (mid-page) -------------------------- */
+    .callout-hand {
+      display: block;
+      font-family: 'Caveat', 'Bradley Hand', cursive;
+      font-weight: 500;
+      font-size: 1.55rem;
+      line-height: 1.35;
+      color: #2c2c2c;
+      text-align: center;
+      margin: 1.75rem 0;
+      letter-spacing: 0.01em;
+    }
+    .project-card .callout-hand {
+      font-size: 1.4rem;
+      margin: 1rem 0 1.25rem;
+    }
+    .project-card.featured .callout-hand {
+      color: var(--accent-bright);
+    }
+
     /* HANDWRITTEN CLOSE --------------------------------------- */
     .handwritten-section {
       background: var(--bg-dark);
@@ -487,6 +507,8 @@
       .work-card, .project-card { padding: 1.4rem; }
       .essay { padding: 1rem 1.1rem; }
       .handwritten-section { padding: 3.5rem 1.25rem; }
+      .callout-hand { font-size: 1.3rem; margin: 1.25rem 0; }
+      .project-card .callout-hand { font-size: 1.2rem; }
     }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&display=swap" rel="stylesheet" />
@@ -525,6 +547,8 @@
 
         <p>Most people frame AI ROI as finding the one big thing that saves 20 hours. That is not the shift. The shift is small recoveries that compound. 10 minutes here. 45 minutes there. An hour somewhere else. I shared some AI workflows with a PM peer group recently. The feedback was not "great prompts." It was "this is going to save so much time." That is the measure. Not the cleverness of the mechanism. The hour they get back. And what matters is not the time saved. It is what you do with it. You recapture time from low-leverage work so you can apply it to the deeper work that actually moves things. None of this releases if you only add AI on top of what you were already doing. <span class="key">The value comes when you stop doing the old thing.</span></p>
 
+        <span class="callout-hand">It is what you do with it.</span>
+
         <p>Everyone is worried that AI is flattening the PM curve because everyone has access to the same tools. The premise is right. The conclusion is wrong. The moat is you: your ethics, your thoughts, your approach, your values, your position. <span class="key">No one can replace you.</span></p>
 
         <p>It is no different from photography or real estate. Hand the same camera to a thousand photographers and you get a thousand different photographs. Hand the same listing to a thousand realtors and you get a thousand different sale prices. The tool is not the differentiator. <span class="key">The person using it is.</span></p>
@@ -536,6 +560,8 @@
         <p>I have done that work in places where getting it wrong is not an option. Compliance-grade financial services first, then a $250M ARR HCM platform. Inside both, I built like a founder. When my team needed an AI capability platform, I did not wait for someone to fund it; I built one from scratch with Claude Code and agentic workflows, and internal teams are using it now. Operator rigor and founder instinct are not a contradiction. The first earns you the right to do the second.</p>
 
         <p>What I am drawn to underneath all of this is the same instinct from different angles. The trust layer beneath a migration. The influence layer beneath an org chart. The adoption layer beneath a tool rollout. The system beneath the visible system. The work I want to keep doing is to build the kind of infrastructure that makes people more visible, more capable, and more confident, the kind that does not show up in a process diagram and decides everything anyway. Leadership in those systems has rarely waited for the title for me. It started in small moments, the kind no one notices until suddenly everyone does.</p>
+
+        <span class="callout-hand">Leadership doesn't start with a job title.</span>
 
         <p>I am writing this thesis for other PMs as much as for myself. Do not be worried that AI is flattening the curve. Do not be worried that AI is coming for your job. No model can replicate you. <span class="key">You are unrepeatable.</span></p>
 
@@ -618,6 +644,7 @@
             <h3 class="project-title">Cold Open</h3>
             <p class="project-what">A warm-path job search tool for senior PMs.</p>
             <p class="project-body">Most job search tools are generic. Same postings, same application flow, same output for everyone. Cold Open inverts that. You do not need hundreds of applications. You need to find the one, the role where the right person already knows your work. You start by writing what you bring to an organization, in your own voice. The tool reads who has engaged with that voice across LinkedIn and Substack and lines them up against the open roles you are targeting. The more personal context you bring, your impact statement, your social graph, your published thinking, the more the tool tailors itself to you. Your context is the competitive advantage. It compounds. Someone else using Cold Open gets a completely different experience because they are a different person.</p>
+            <span class="callout-hand">You are the moat.</span>
             <div class="stack">React &middot; localStorage &middot; static deploy</div>
             <span class="repo-private">Private repo &middot; in development</span>
           </div>
