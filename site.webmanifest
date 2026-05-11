@@ -1,0 +1,16 @@
+{
+  "name": "Ian Cowpar",
+  "short_name": "Ian Cowpar",
+  "description": "AI-native product leader. The moat is you, one of one by design.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1020",
+  "theme_color": "#0B1020",
+  "icons": [
+    {
+      "src": "/headshot.jpg",
+      "sizes": "any",
+      "type": "image/jpeg"
+    }
+  ]
+}
