@@ -4,7 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ian Cowpar</title>
-  <meta name="description" content="Product leader exploring the hidden systems that shape work, trust, adoption, and culture." />
+  <meta name="description" content="AI-native product leader. The moat is you, one of one by design." />
+  <meta name="author" content="Ian Cowpar" />
+  <meta name="theme-color" content="#0B1020" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://iancowpar.github.io" />
+  <meta property="og:title" content="Ian Cowpar" />
+  <meta property="og:description" content="AI-native product leader. The moat is you, one of one by design." />
+  <meta property="og:image" content="https://iancowpar.github.io/headshot.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ian Cowpar" />
+  <meta name="twitter:description" content="AI-native product leader. The moat is you, one of one by design." />
+  <meta name="twitter:image" content="https://iancowpar.github.io/headshot.jpg" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='3' fill='%230B1020'/><circle cx='8' cy='8' r='3.2' fill='%234F7CFF'/></svg>" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,6 +47,10 @@
 
     * { box-sizing: border-box; }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     html, body {
       margin: 0;
       padding: 0;
@@ -43,6 +61,75 @@
       line-height: 1.55;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    h1, h2, h3, .hero h1, .section-heading {
+      text-wrap: balance;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent-bright);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    /* Fade-up on scroll */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+      will-change: opacity, transform;
+    }
+    .fade-up.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .fade-up {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .eyebrow::before,
+      .project-status::before {
+        animation: none;
+      }
+    }
+
+    /* Card links row (live + code) */
+    .card-links {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .card-links .repo-link {
+      margin-top: 0;
+    }
+    .card-links .repo-secondary {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-light-muted);
+      letter-spacing: -0.005em;
+    }
+    .card-links .repo-secondary:hover {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .project-card.featured .card-links .repo-secondary {
+      color: var(--text-dark-muted);
+    }
+    .project-card.featured .card-links .repo-secondary:hover {
+      color: var(--accent-bright);
     }
 
     .mono {
@@ -538,7 +625,7 @@
 
   <main>
 
-    <section class="block">
+    <section class="block fade-up">
       <span class="label">Manifesto</span>
       <div class="manifesto">
         <p>Stop me if you have seen this happen lately. The team has the right idea. The roadmap is clean. Everyone in the room nods. Then the idea has to survive a translation layer, into a ticket, into a sprint, into someone else's hands, and what ships looks nothing like what was named in the room.</p>
@@ -572,7 +659,7 @@
       </div>
     </section>
 
-    <section class="block alt">
+    <section class="block alt fade-up">
       <div class="inner" style="padding: 0 2rem;">
         <span class="label">Writing</span>
         <h2 class="section-heading">The moat in published form.</h2>
@@ -609,7 +696,7 @@
       </div>
     </section>
 
-    <section class="block">
+    <section class="block fade-up">
       <span class="label">Work</span>
       <h2 class="section-heading">Built where getting it wrong was not an option.</h2>
       <p class="section-sub">Compliance-grade enterprise as the proving ground. Founder instinct inside it.</p>
@@ -627,7 +714,7 @@
       </div>
     </section>
 
-    <section class="block alt">
+    <section class="block alt fade-up">
       <div class="inner" style="padding: 0 2rem;">
         <span class="label">Projects</span>
         <h2 class="section-heading">Shipping in public.</h2>
@@ -641,7 +728,10 @@
             <p class="project-body">Everyone in the buildathon got the same dataset, so my differentiator could not be the data. The obvious move was to ask Claude for a novel idea on top of the corpus, which is exactly what would generate the same ideas everyone else got. I went a step deeper. I gave Claude the corpus, my Substack archive, and my positioning, and asked it to find an angle that was mine to ship and no one else's, regardless of how good anyone else got with the tools.</p>
             <p class="project-body">What came out was the Network Intelligence Layer applied to Lenny's own archive. A graph of the corpus, plus three surfaces over it: Atlas, an interactive map; Lookup, where you paste a product situation and the model returns two contrasting reads and a draft move; Briefing, where you paste an external artifact like a CPO talk or job description and the model returns priorities, agreements and pushbacks grounded in the corpus. The named concept on this page, made real.</p>
             <div class="stack">Python &middot; FastAPI &middot; Anthropic API &middot; vis-network</div>
-            <a class="repo-link" href="https://github.com/iancowpar/lennys-contest" target="_blank" rel="noopener">github.com/iancowpar/lennys-contest &rarr;</a>
+            <div class="card-links">
+              <a class="repo-link" href="https://beneath-the-org-chart.replit.app" target="_blank" rel="noopener">Live demo &rarr;</a>
+              <a class="repo-secondary" href="https://github.com/iancowpar/lennys-contest" target="_blank" rel="noopener">Code</a>
+            </div>
           </div>
 
           <div class="project-card">
@@ -650,7 +740,9 @@
             <p class="project-body">Most job search tools are generic. Same postings, same application flow, same output for everyone. Cold Open inverts that. You do not need hundreds of applications. You need to find the one, the role where the right person already knows your work. You start by writing what you bring to an organization, in your own voice. The tool reads who has engaged with that voice across LinkedIn and Substack and lines them up against the open roles you are targeting. The more personal context you bring, your impact statement, your social graph, your published thinking, the more the tool tailors itself to you. Your context is the competitive advantage. It compounds. Someone else using Cold Open gets a completely different experience because they are a different person.</p>
             <span class="callout-hand">You are the moat.</span>
             <div class="stack">React &middot; localStorage &middot; static deploy</div>
-            <span class="repo-private">Private repo &middot; in development</span>
+            <div class="card-links">
+              <a class="repo-link" href="https://cold-open.netlify.app" target="_blank" rel="noopener">Live demo &rarr;</a>
+            </div>
           </div>
 
           <div class="project-card">
@@ -658,13 +750,16 @@
             <p class="project-what">A practice-worksheet generator for math teachers.</p>
             <p class="project-body">My wife teaches math. She was rebuilding worksheets by hand for students who needed a second pass at problem types they had missed, and at some point I started doing it for her. Round Two exists so she does not need me. Upload a test PDF and it pulls the problem types using Claude, generates five fresh practice problems per type with answers verified by SymPy so the math is actually right, and prints a worksheet with worked examples and an answer key. Zero-Translation Building in miniature: collapse a dependency, hand someone their autonomy back.</p>
             <div class="stack">Python &middot; Streamlit &middot; Anthropic API &middot; SymPy</div>
-            <a class="repo-link" href="https://github.com/iancowpar/worksheet-generator" target="_blank" rel="noopener">github.com/iancowpar/worksheet-generator &rarr;</a>
+            <div class="card-links">
+              <a class="repo-link" href="https://round-two.streamlit.app" target="_blank" rel="noopener">Live demo &rarr;</a>
+              <a class="repo-secondary" href="https://github.com/iancowpar/worksheet-generator" target="_blank" rel="noopener">Code</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="handwritten-section">
+    <section class="handwritten-section fade-up">
       <div class="handwritten">
         <p>Don't be worried that AI is flattening the PM curve. Don't be worried that AI is coming for your job. No model can replicate you.</p>
         <p>You are defensible. You are unrepeatable. You are <span class="key-hand">one of one by design</span>.</p>
@@ -682,6 +777,28 @@
     <span class="dot">·</span>
     <span>&copy; 2026</span>
   </footer>
+
+  <script>
+    (function() {
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.fade-up').forEach(function(el) { el.classList.add('in-view'); });
+        return;
+      }
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('.fade-up').forEach(function(el) { el.classList.add('in-view'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+    })();
+  </script>
 
 </body>
 </html>
