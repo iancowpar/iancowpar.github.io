@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Unofficial Leader's Manifesto &middot; Ian Cowpar</title>
+  <meta name="description" content="How I lead as a PM Manager. Fourteen commitments I hold myself to." />
+  <meta name="author" content="Ian Cowpar" />
+  <meta name="theme-color" content="#0B1020" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://iancowpar.github.io/leaders-manifesto.html" />
+  <meta property="og:title" content="The Unofficial Leader's Manifesto" />
+  <meta property="og:description" content="How I lead as a PM Manager. Fourteen commitments I hold myself to." />
+  <meta property="og:image" content="https://iancowpar.github.io/headshot.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Unofficial Leader's Manifesto" />
+  <meta name="twitter:description" content="How I lead as a PM Manager. Fourteen commitments I hold myself to." />
+  <meta name="twitter:image" content="https://iancowpar.github.io/headshot.jpg" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='3' fill='%230B1020'/><circle cx='8' cy='8' r='3.2' fill='%234F7CFF'/></svg>" />
+  <link rel="apple-touch-icon" href="/headshot.jpg" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-dark: #0B1020;
+      --bg-dark-2: #111733;
+      --bg-light: #ffffff;
+      --bg-light-2: #F7F8FB;
+      --text-dark: #ffffff;
+      --text-dark-muted: #9aa3b8;
+      --text-light: #0B1020;
+      --text-light-muted: #5b6478;
+      --accent: #4F7CFF;
+      --accent-bright: #6EA0FF;
+      --accent-soft: #E8EFFF;
+      --accent-dim: #1E2E5E;
+      --border-dark: #1d2545;
+      --border-light: #E4E7EF;
+      --shadow-sm: 0 1px 2px rgba(11, 16, 32, 0.04), 0 2px 4px rgba(11, 16, 32, 0.04);
+      --shadow-md: 0 4px 8px rgba(11, 16, 32, 0.06), 0 8px 16px rgba(11, 16, 32, 0.06);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg-light);
+      color: var(--text-light);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      hanging-punctuation: first last;
+      text-rendering: optimizeLegibility;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -3rem;
+      background: var(--accent);
+      color: #ffffff;
+      padding: 0.65rem 1rem;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      z-index: 1000;
+      transition: top 0.2s ease-out;
+    }
+    .skip-link:focus { top: 1rem; outline: 2px solid var(--accent-bright); outline-offset: 3px; }
+
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: var(--bg-light-2); }
+    ::-webkit-scrollbar-thumb { background: #C7CDDC; border-radius: 8px; border: 2px solid var(--bg-light-2); }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+    html { scrollbar-width: thin; scrollbar-color: #C7CDDC var(--bg-light-2); }
+
+    ::selection { background: var(--accent); color: #ffffff; }
+
+    h1, h2, h3 { text-wrap: balance; }
+
+    :focus-visible {
+      outline: 2px solid var(--accent-bright);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+      will-change: opacity, transform;
+    }
+    .fade-up.in-view { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .fade-up { opacity: 1; transform: none; transition: none; }
+      .eyebrow::before { animation: none; }
+    }
+
+    /* HERO ---------------------------------------------------- */
+    .hero {
+      background: var(--bg-dark);
+      background-image:
+        radial-gradient(circle at 15% 20%, rgba(79, 124, 255, 0.18), transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(110, 160, 255, 0.10), transparent 50%);
+      color: var(--text-dark);
+      padding: 5rem 2rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(79, 124, 255, 0.5), transparent);
+    }
+    .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-dark-muted);
+      margin-bottom: 2rem;
+      letter-spacing: -0.005em;
+    }
+    .back-link:hover {
+      color: var(--accent-bright);
+      text-decoration: none;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--accent-bright);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      padding: 0.4rem 0.85rem;
+      background: rgba(79, 124, 255, 0.08);
+      border: 1px solid rgba(79, 124, 255, 0.25);
+      border-radius: 999px;
+    }
+    .eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-bright);
+      box-shadow: 0 0 12px rgba(110, 160, 255, 0.7);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+    .hero h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      line-height: 1.02;
+      margin: 0 0 1rem;
+    }
+    .hero h1 .accent { color: var(--accent-bright); }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--text-dark-muted);
+      margin: 0 0 2rem;
+      font-weight: 500;
+      letter-spacing: -0.005em;
+    }
+    .hero-epigraph {
+      font-family: 'Caveat', 'Bradley Hand', cursive;
+      font-size: clamp(1.4rem, 2vw, 1.75rem);
+      line-height: 1.4;
+      color: var(--accent-bright);
+      margin: 0;
+      max-width: 36ch;
+    }
+
+    /* MAIN ---------------------------------------------------- */
+    main { background: var(--bg-light); }
+
+    article.manifesto {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 5rem 2rem 4rem;
+    }
+
+    .principle {
+      margin: 0 0 4rem;
+      scroll-margin-top: 2rem;
+    }
+    .principle:last-of-type { margin-bottom: 2rem; }
+
+    .principle-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.65rem;
+    }
+    .principle h2 {
+      font-size: clamp(1.45rem, 2.3vw, 1.85rem);
+      font-weight: 800;
+      letter-spacing: -0.022em;
+      line-height: 1.18;
+      margin: 0 0 1.25rem;
+      color: var(--text-light);
+    }
+    .principle p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin: 0 0 1.15rem;
+      color: var(--text-light);
+    }
+    .principle p:last-child { margin-bottom: 0; }
+    .principle .key {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .rule {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-light), transparent);
+      margin: 3.5rem 0;
+    }
+
+    /* Closing -------------------------------------------------- */
+    .closing {
+      background: var(--bg-light-2);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .closing-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .closing .living {
+      font-family: 'Caveat', 'Bradley Hand', cursive;
+      font-size: clamp(1.45rem, 2.2vw, 1.85rem);
+      line-height: 1.4;
+      color: var(--text-light);
+      margin: 0 0 0.75rem;
+    }
+    .closing .signature {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      color: var(--text-light-muted);
+      margin: 0;
+    }
+    .closing .signature .name { color: var(--accent); font-weight: 600; }
+
+    /* Return / Footer ----------------------------------------- */
+    .return-row {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .return-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--accent);
+    }
+    .return-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--text-light-muted);
+      letter-spacing: 0.02em;
+    }
+
+    footer {
+      background: var(--bg-dark);
+      color: var(--text-dark-muted);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border-dark);
+    }
+    footer a { color: var(--text-dark-muted); }
+    footer a:hover { color: var(--accent-bright); text-decoration: none; }
+    footer .dot { margin: 0 0.6rem; color: var(--border-dark); }
+
+    /* Mobile -------------------------------------------------- */
+    @media (max-width: 640px) {
+      .hero { padding: 3rem 1.25rem 3.5rem; }
+      .hero h1 { font-size: 2.1rem; }
+      article.manifesto { padding: 3rem 1.25rem 2.5rem; }
+      .principle { margin-bottom: 3rem; }
+      .principle h2 { font-size: 1.35rem; }
+      .principle p { font-size: 1rem; }
+      .closing { padding: 3rem 1.25rem; }
+      .return-row { padding: 2rem 1.25rem 3rem; }
+      .rule { margin: 2.5rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <a class="back-link" href="index.html">&larr; Back to portfolio</a>
+      <span class="eyebrow">Leadership Manifesto</span>
+      <h1>The Unofficial <span class="accent">Leader's</span> Manifesto</h1>
+      <p class="hero-sub">How I lead as a PM Manager.</p>
+      <p class="hero-epigraph">The most important things a manager does are often the ones that never make it onto a job description.</p>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="manifesto">
+
+      <section class="principle fade-up">
+        <span class="principle-number">Principle I</span>
+        <h2>I Lead Through What I Make Possible &mdash; Not What I Control</h2>
+        <p>My job isn't to have the best ideas. It's to build the conditions where better ideas happen. Authority is a lever I use sparingly and a crutch I refuse. If my team only moves when I push, I've already failed. <span class="key">The goal is motion that doesn't require me.</span></p>
+      </section>
+
+      <hr class="rule" />
+
+      <section class="principle fade-up">
+        <span class="principle-number">Principle II</span>
+        <h2>Clarity Is a Leadership Act</h2>
+        <p>Ambiguity isn't neutral. It has a cost &mdash; paid in anxiety, in misalignment, in wasted sprints. When I know something my team needs to know, I say it. When I don't know, I say that too. Pretending to have certainty I don't have isn't leadership &mdash; it's performance. <span class="key">Real clarity is uncomfortable sometimes. I do it anyway.</span></p>
+      </section>
+
+      <hr class="rule" />
+
+      <section class="principle fade-up">
+        <span class="principle-number">Principle III</span>
+        <h2>I Build Builders</h2>
+        <p>The metric I care most about is not what my team ships while I'm here. It's what they're capable of when I'm not in the room. I hire people I can learn from. I give them problems, not solutions. I get out of the way fast and come back with questions, not corrections. <span class="key">My job is to make every person on my team more dangerous than they were when they arrived.</span></p>
+      </section>
+
+      <hr class="rule" />
+
+      <section class="principle fade-up">
+        <span class="principle-number">Principle IV</span>
+        <h2>I Hire the Person Before the Resume</h2>
+        <p>Skills can be developed. Character is harder. When I'm building a team, I'm not just filling a skill matrix &mdash; I'm choosing the people I'll trust when things get hard, the people who will shape how everyone else shows up, the people who decide what it actually feels like to be on this team. That choice starts with who someone is, not what they've done.</p>
+        <p>I look for intellectual honesty. The willingness to say "I don't know." Curiosity that doesn't need permission. The way someone treats people who can't do anything for them. Those things tell me more than a portfolio or a pedigree ever will.</p>
+        <p>What you bring professionally matters &mdash; I'm not dismissing it. But I've seen exceptional resumes produce mediocre teams, and I've seen people who looked rough on paper become the backbone of something great. <span class="key">Character is the variable that makes the difference. I hire for it first.</span></p>
+      </section>
+
+      <hr class="rule" />
+
+      <section class="principle fade-up">
+        <span class="principle-number">Principle V</span>
+        <h2>Culture Lives in Small Moments</h2>
+        <p>I don't give culture speeches. I model it in how I handle a missed deadline, a bad estimate, a hard conversation that most people would postpone. Culture isn't what's on the wall &mdash; it's what happens when things go sideways. <span class="key">I treat every small moment as a vote for the kind of team we are.</span></p>
+      </section>
+
+      <hr class="rule" />
+
+      <section class="principle fade-up">
+        <span class="principle-number">Principle VI</span>
+        <h2>I Name What's True in the Room</h2>
+        <p>If something is wrong, I say so &mdash; even when it's uncomfortable, even when it implicates decisions I made, even when it means slowing down to have a conversation the calendar doesn't have room for. I do not let dysfunction become furniture. <span class="key">The cost of silence compounds.</span></p>
+      </section>
+
+      <hr class="rule" />
+
+      <section class="principle fade-up">
+        <span class="principle-number">Principle VII</span>
+        <h2>Trust Before Process</h2>
+        <p>Process is a scaffold. Trust is the structure. I don't reach for process to solve problems that are actually trust problems &mdash; because it doesn't work, and it signals to my team that I don't know the difference. <span class="key">I invest in relationships early and deliberately, so that when things get hard, we have something to stand on.</span></p>
+      </section>
+
+      <hr class="rule" />
+
+      <section class="principle fade-up">
+        <span class="principle-number">Principle VIII</span>
+        <h2>I Don't Optimize for Credit</h2>
+        <p>I care about momentum, not attribution. If my fingerprints aren't on the win, that's fine &mdash; sometimes that's the whole point. The teams I've been most proud of were ones where the people doing the work got the recognition and I got to watch it happen. That's not selflessness. That's strategy. <span class="key">Teams that protect each other's credit outperform teams that compete for it.</span></p>
+      </section>
+
+      <hr class="rule" />
+
+      <section class="principle fade-up">
+        <span class="principle-number">Principle IX</span>
+        <h2>Growth Is the Job &mdash; Theirs and Mine</h2>
+        <p>I take my team's career development as seriously as I take the roadmap. Not because it's an HR requirement &mdash; because people who are growing are engaged, and people who are engaged build better products. I will have direct conversations about where someone wants to go, what's in the way, and what I can do about it. I will also keep learning myself. <span class="key">A manager who stopped growing the day they got the title is a ceiling, not a ladder.</span></p>
+      </section>
+
+      <hr class="rule" />
+
+      <section class="principle fade-up">
+        <span class="principle-number">Principle X</span>
+        <h2>I Am Responsible for Conditions, Not Just Outcomes</h2>
+        <p>When something goes wrong, I start with the environment before I evaluate the person. Did they have what they needed? Was the problem framed clearly? Did I give them room to fail safely and learn fast? If the answer to any of those is no, that's on me. I own the conditions. <span class="key">Accountability flows up before it flows down.</span></p>
+      </section>
+
+      <hr class="rule" />
+
+      <section class="principle fade-up">
+        <span class="principle-number">Principle XI</span>
+        <h2>The Fall Is Mine. The Win Is Yours.</h2>
+        <p>If something goes wrong on your watch, I'm not standing outside it. I put you in position. I set the conditions. The outcome has my name on it whether I want it to or not &mdash; and I want it to. That accountability isn't a burden I reluctantly accept. It's the deal I signed up for.</p>
+        <p>If you win, I don't need to be part of it. Your success doesn't require my signature or my presence in the frame. I'll make sure the right people see what you did. Then I'll get out of the way. <span class="key">The win belongs to the person who did the work.</span></p>
+      </section>
+
+      <hr class="rule" />
+
+      <section class="principle fade-up">
+        <span class="principle-number">Principle XII</span>
+        <h2>The 1:1 Is Yours, Not Mine</h2>
+        <p>We have plenty of status update meetings. The 1:1 is not one of them. It's yours &mdash; protected time for whatever you actually need: a question you've been sitting on, a frustration you haven't named out loud yet, coaching on something you're working through, or just space to think with someone in your corner. Come with an agenda that fits your needs, not mine. I mean that literally. What friction are you hitting? What do you want to learn? What am I getting wrong? <span class="key">I'll bring my full attention. The rest belongs to you.</span></p>
+      </section>
+
+      <hr class="rule" />
+
+      <section class="principle fade-up">
+        <span class="principle-number">Principle XIII</span>
+        <h2>Feedback Is Continuous and 360&deg;</h2>
+        <p>You will never be surprised at a performance review. If you are, I have failed &mdash; not you. That's not a consolation. It's a commitment. Feedback travels fast in both directions here: when you do something well, you'll hear it immediately. When something slips, you'll hear that too. A review shouldn't be a revelation. It should be a summary of conversations we've already had.</p>
+        <p>Goals aren't set-and-forget either. We'll revisit them often &mdash; tuning to what the company needs and what you need, because those two things should be working together. If the target moves, I'll tell you. If your priorities shift, tell me. We stay calibrated in real time, not at the end of the year.</p>
+        <p>The 360&deg; part is real. I want your feedback too &mdash; on my decisions, my communication, my blind spots. Feedback only works when it flows freely in every direction. I'll build the conditions for that. <span class="key">And I'll go first.</span></p>
+      </section>
+
+      <hr class="rule" />
+
+      <section class="principle fade-up">
+        <span class="principle-number">Principle XIV</span>
+        <h2>The Unofficial Leader Goes First</h2>
+        <p>I don't ask my team to do what I won't model. Vulnerability, directness, intellectual honesty, the willingness to say "I was wrong" &mdash; I demonstrate all of it before I expect any of it. Leadership isn't about the title. <span class="key">It's about being the kind of person others choose to follow &mdash; even when they don't have to.</span></p>
+      </section>
+
+    </article>
+
+    <section class="closing fade-up">
+      <div class="closing-inner">
+        <p class="living">This is a living document. The principles will evolve. The commitments won't.</p>
+        <p class="signature"><span class="name">Ian Cowpar</span> &middot; The Unofficial Leader</p>
+      </div>
+    </section>
+
+    <div class="return-row">
+      <a class="return-link" href="index.html">&larr; Back to portfolio</a>
+      <a class="return-meta" href="https://theunofficialleader.substack.com" target="_blank" rel="noopener">More writing on Substack &rarr;</a>
+    </div>
+  </main>
+
+  <footer>
+    <a href="mailto:ian.cowpar@gmail.com">ian.cowpar@gmail.com</a>
+    <span class="dot">&middot;</span>
+    <a href="https://www.linkedin.com/in/ian-cowpar" target="_blank" rel="noopener">LinkedIn</a>
+    <span class="dot">&middot;</span>
+    <a href="https://theunofficialleader.substack.com" target="_blank" rel="noopener">Substack</a>
+    <span class="dot">&middot;</span>
+    <span>&copy; 2026</span>
+  </footer>
+
+  <script>
+    (function() {
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.fade-up').forEach(function(el) { el.classList.add('in-view'); });
+        return;
+      }
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('.fade-up').forEach(function(el) { el.classList.add('in-view'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+    })();
+  </script>
+
+</body>
+</html>
