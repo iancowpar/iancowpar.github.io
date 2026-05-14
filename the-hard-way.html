@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Hard Way &middot; A Podcast from The Unofficial Leader</title>
+  <meta name="description" content="Two leaders. One principle. The moment that taught them the hard way. A podcast from Ian Cowpar and Vanessa M Nedvins." />
+  <meta name="author" content="Ian Cowpar" />
+  <meta name="theme-color" content="#0B1020" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://iancowpar.github.io/the-hard-way.html" />
+  <meta property="og:title" content="The Hard Way" />
+  <meta property="og:description" content="Two leaders. One principle. The moment that taught them the hard way." />
+  <meta property="og:image" content="https://iancowpar.github.io/the-hard-way-cover.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Hard Way" />
+  <meta name="twitter:description" content="Two leaders. One principle. The moment that taught them the hard way." />
+  <meta name="twitter:image" content="https://iancowpar.github.io/the-hard-way-cover.svg" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='3' fill='%230B1020'/><circle cx='8' cy='8' r='3.2' fill='%234F7CFF'/></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-dark: #0B1020;
+      --bg-light: #ffffff;
+      --bg-light-2: #F7F8FB;
+      --text-dark: #ffffff;
+      --text-dark-muted: #9aa3b8;
+      --text-light: #0B1020;
+      --text-light-muted: #5b6478;
+      --accent: #4F7CFF;
+      --accent-bright: #6EA0FF;
+      --accent-soft: #E8EFFF;
+      --border-light: #E4E7EF;
+      --border-dark: #1d2545;
+      --shadow-sm: 0 1px 2px rgba(11,16,32,.04), 0 2px 4px rgba(11,16,32,.04);
+      --shadow-md: 0 4px 8px rgba(11,16,32,.06), 0 8px 16px rgba(11,16,32,.06);
+      --shadow-lg: 0 12px 32px rgba(11,16,32,.08), 0 24px 64px rgba(11,16,32,.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    html, body {
+      margin: 0; padding: 0;
+      background: var(--bg-light);
+      color: var(--text-light);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+    ::selection { background: var(--accent); color: #fff; }
+    :focus-visible { outline: 2px solid var(--accent-bright); outline-offset: 3px; border-radius: 2px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+    .skip-link {
+      position: absolute; left: 1rem; top: -3rem;
+      background: var(--accent); color: #fff;
+      padding: 0.65rem 1rem; border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem; font-weight: 500;
+      z-index: 1000; transition: top .2s ease-out;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    .fade-up { opacity: 0; transform: translateY(18px); transition: opacity .7s ease-out, transform .7s ease-out; }
+    .fade-up.in-view { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .fade-up { opacity: 1; transform: none; transition: none; }
+      .premiering::before { animation: none; }
+    }
+
+    /* HERO ------------------------------------------------------ */
+    .hero {
+      background: var(--bg-dark);
+      background-image:
+        radial-gradient(circle at 15% 20%, rgba(79,124,255,.18), transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(110,160,255,.10), transparent 50%);
+      color: var(--text-dark);
+      padding: 4.5rem 2rem 5.5rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(79,124,255,.5), transparent);
+    }
+    .hero-inner { max-width: 980px; margin: 0 auto; }
+    .back-link {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .82rem; font-weight: 500;
+      color: var(--text-dark-muted);
+      margin-bottom: 2rem;
+    }
+    .back-link:hover { color: var(--accent-bright); text-decoration: none; }
+    .premiering {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .78rem; font-weight: 500;
+      letter-spacing: .06em; color: var(--accent-bright);
+      text-transform: uppercase; margin-bottom: 1.75rem;
+      padding: .4rem .85rem;
+      background: rgba(79,124,255,.08);
+      border: 1px solid rgba(79,124,255,.25);
+      border-radius: 999px;
+    }
+    .premiering::before {
+      content: ''; display: inline-block; width: 7px; height: 7px;
+      border-radius: 50%; background: var(--accent-bright);
+      box-shadow: 0 0 12px rgba(110,160,255,.7);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+    .hero h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2.75rem, 6vw, 5rem);
+      font-weight: 900;
+      letter-spacing: -.04em;
+      line-height: .98;
+      margin: 0 0 1.25rem;
+      max-width: 14ch;
+    }
+    .hero h1 .accent { color: var(--accent-bright); }
+    .hero-tagline {
+      font-size: clamp(1.2rem, 1.6vw, 1.5rem);
+      font-weight: 500;
+      color: var(--text-dark);
+      max-width: 38ch;
+      margin: 0 0 1.5rem;
+      line-height: 1.35;
+      letter-spacing: -.01em;
+    }
+    .hero-epigraph {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(1.4rem, 2vw, 1.75rem);
+      line-height: 1.4;
+      color: var(--accent-bright);
+      margin: 0 0 2.5rem;
+      max-width: 40ch;
+    }
+    .hero-epigraph .attr {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .75rem;
+      letter-spacing: .04em;
+      color: var(--text-dark-muted);
+      display: block;
+      margin-top: .25rem;
+    }
+    .subscribe-row {
+      display: flex; gap: .75rem; flex-wrap: wrap;
+      max-width: 720px;
+    }
+    .sub-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: .55rem;
+      padding: .85rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: .95rem;
+      letter-spacing: -.005em;
+      transition: all .15s ease;
+      border: 1px solid transparent;
+      min-width: 180px;
+    }
+    .sub-btn.primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .sub-btn.primary:hover { background: var(--accent-bright); transform: translateY(-1px); text-decoration: none; }
+    .sub-btn.secondary {
+      background: rgba(255,255,255,.04);
+      color: var(--text-dark);
+      border-color: rgba(255,255,255,.15);
+    }
+    .sub-btn.secondary:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.3); text-decoration: none; }
+    .sub-btn.disabled {
+      background: transparent;
+      color: var(--text-dark-muted);
+      border-color: rgba(255,255,255,.08);
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    .sub-btn svg { width: 16px; height: 16px; }
+    .sub-btn .badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .65rem; font-weight: 600;
+      letter-spacing: .08em;
+      padding: .15rem .4rem;
+      border-radius: 4px;
+      background: rgba(255,255,255,.08);
+      color: var(--text-dark-muted);
+      margin-left: .25rem;
+    }
+
+    /* SHOW + COVER --------------------------------------------- */
+    main { background: var(--bg-light); }
+    .show-block {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    @media (max-width: 880px) {
+      .show-block { grid-template-columns: 1fr; gap: 2.5rem; padding: 3.5rem 1.5rem; }
+    }
+    .cover-wrap {
+      max-width: 440px;
+      margin: 0 auto;
+      width: 100%;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-light);
+    }
+    .cover-wrap svg { display: block; width: 100%; height: auto; }
+    .label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .72rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem; display: block;
+    }
+    .section-heading {
+      font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -.025em;
+      line-height: 1.1;
+      margin: 0 0 1.25rem;
+    }
+    .lede {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin: 0 0 1.15rem;
+    }
+    .lede:last-of-type { margin-bottom: 1.5rem; }
+    .key { color: var(--accent); font-weight: 600; }
+
+    .spine-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .75rem;
+      margin-top: 1.5rem;
+    }
+    .spine-card {
+      background: var(--bg-light-2);
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      padding: 1rem .85rem;
+      text-align: center;
+    }
+    .spine-card .num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.75rem; font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+      margin-bottom: .3rem;
+    }
+    .spine-card .lbl {
+      font-size: .82rem;
+      color: var(--text-light-muted);
+      line-height: 1.3;
+    }
+
+    /* SECTIONS ------------------------------------------------- */
+    section.block {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+    section.block.alt {
+      background: var(--bg-light-2);
+      max-width: none;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    section.block.alt > .inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    /* HOSTS ---------------------------------------------------- */
+    .hosts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 880px) {
+      .hosts-grid { grid-template-columns: 1fr; }
+    }
+    .host-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .host-card .host-role {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .78rem; font-weight: 500;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: .5rem;
+      display: block;
+    }
+    .host-card h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      margin: 0 0 .85rem;
+    }
+    .host-card p {
+      font-size: .98rem;
+      line-height: 1.65;
+      margin: 0 0 1rem;
+    }
+    .host-card .host-links {
+      display: flex; gap: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .82rem;
+      font-weight: 500;
+    }
+
+    /* FORMAT --------------------------------------------------- */
+    .spine-question {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(1.85rem, 2.8vw, 2.4rem);
+      line-height: 1.3;
+      color: var(--accent);
+      text-align: center;
+      margin: 2.5rem 0;
+      max-width: 28ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .pass-list {
+      max-width: 720px;
+      margin: 2rem auto 0;
+      display: flex; flex-direction: column;
+      gap: 1rem;
+    }
+    .pass {
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 1.1rem 1.4rem;
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 1.25rem;
+      align-items: baseline;
+    }
+    @media (max-width: 560px) {
+      .pass { grid-template-columns: 1fr; gap: .35rem; padding: 1rem 1.1rem; }
+    }
+    .pass .pass-time {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .82rem; font-weight: 600;
+      color: var(--accent);
+    }
+    .pass .pass-body { font-size: .98rem; line-height: 1.55; }
+    .pass .pass-body strong { color: var(--text-light); font-weight: 700; }
+
+    /* EPISODES ------------------------------------------------- */
+    .ep-list {
+      display: flex; flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .ep {
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      padding: 1.5rem 1.75rem;
+      display: grid;
+      grid-template-columns: 90px 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+      box-shadow: var(--shadow-sm);
+    }
+    @media (max-width: 720px) {
+      .ep { grid-template-columns: 1fr; gap: .65rem; padding: 1.25rem; }
+    }
+    .ep .ep-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2rem; font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .ep .ep-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -.015em;
+      margin: 0 0 .35rem;
+    }
+    .ep .ep-meta {
+      font-size: .9rem;
+      color: var(--text-light-muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .ep .ep-meta .principles {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .78rem;
+      color: var(--accent);
+      letter-spacing: .04em;
+    }
+    .ep .ep-status {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .72rem; font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-light-muted);
+      padding: .4rem .8rem;
+      background: var(--bg-light-2);
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .ep.featured {
+      background: linear-gradient(135deg, #0B1020 0%, #1a2347 100%);
+      color: var(--text-dark);
+      border-color: var(--accent);
+      box-shadow: var(--shadow-lg);
+    }
+    .ep.featured .ep-num { color: var(--accent-bright); }
+    .ep.featured .ep-title { color: var(--text-dark); }
+    .ep.featured .ep-meta { color: var(--text-dark-muted); }
+    .ep.featured .ep-meta .principles { color: var(--accent-bright); }
+    .ep.featured .ep-status {
+      background: rgba(79,124,255,.15);
+      color: var(--accent-bright);
+      border: 1px solid rgba(79,124,255,.35);
+    }
+    .ep.placeholder { opacity: .65; }
+
+    /* CLOSING -------------------------------------------------- */
+    .close {
+      background: var(--bg-dark);
+      background-image: radial-gradient(circle at 50% 30%, rgba(79,124,255,.18), transparent 50%);
+      color: var(--text-dark);
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .close-inner { max-width: 640px; margin: 0 auto; }
+    .close .apollo {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(2rem, 3.5vw, 2.85rem);
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--text-dark);
+      margin: 0 0 .5rem;
+    }
+    .close .attr {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .78rem;
+      letter-spacing: .04em;
+      color: var(--text-dark-muted);
+      margin: 0 0 2.5rem;
+    }
+    .close .sub-btn {
+      min-width: 220px;
+    }
+
+    /* FOOTER --------------------------------------------------- */
+    footer {
+      background: var(--bg-dark);
+      color: var(--text-dark-muted);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .85rem;
+      border-top: 1px solid var(--border-dark);
+    }
+    footer a { color: var(--text-dark-muted); }
+    footer a:hover { color: var(--accent-bright); text-decoration: none; }
+    footer .dot { margin: 0 .6rem; color: var(--border-dark); }
+
+    /* Mobile --------------------------------------------------- */
+    @media (max-width: 640px) {
+      .hero { padding: 3rem 1.25rem 4rem; }
+      .hero h1 { font-size: 2.5rem; }
+      section.block { padding: 3.5rem 1.25rem; }
+      .close { padding: 3.5rem 1.25rem; }
+      .sub-btn { min-width: 0; flex: 1 1 calc(50% - .375rem); padding: .75rem 1rem; font-size: .88rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <a class="back-link" href="index.html">&larr; Ian Cowpar &middot; portfolio</a>
+      <span class="premiering">Premiering Soon &middot; Season 1</span>
+      <h1>The <span class="accent">Hard</span> Way</h1>
+      <p class="hero-tagline">Two leaders. One principle. The moment that taught them the hard way.</p>
+      <p class="hero-epigraph">"Some folks got to learn the hard way."<span class="attr">&mdash; APOLLO CREED</span></p>
+      <div class="subscribe-row">
+        <a class="sub-btn primary" href="https://theunofficialleader.substack.com" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+          Subscribe on Substack
+        </a>
+        <a class="sub-btn disabled" aria-disabled="true">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5C6.2 1.5 1.5 6.2 1.5 12c0 4.4 2.7 8.2 6.6 9.7.1-.8.2-2.1 0-3-.2-1 .9-5.3.9-5.3s-.2-.5-.2-1.2c0-1.1.6-1.9 1.5-1.9.7 0 1 .5 1 1.1 0 .7-.4 1.7-.7 2.7-.2.8.4 1.5 1.2 1.5 1.5 0 2.6-1.5 2.6-3.8 0-2-1.4-3.4-3.5-3.4-2.4 0-3.8 1.8-3.8 3.6 0 .7.3 1.5.6 1.9.1.1.1.2.1.3-.1.2-.2.8-.2.9 0 .2-.1.2-.3.1-1-.5-1.7-2-1.7-3.2 0-2.6 1.9-5 5.5-5 2.9 0 5.1 2 5.1 4.8 0 2.9-1.8 5.2-4.3 5.2-.9 0-1.7-.5-1.9-1l-.5 2c-.2.7-.7 1.7-1 2.3.8.2 1.6.3 2.5.3 5.8 0 10.5-4.7 10.5-10.5S17.8 1.5 12 1.5z"/></svg>
+          Apple Podcasts
+          <span class="badge">SOON</span>
+        </a>
+        <a class="sub-btn disabled" aria-disabled="true">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.7 0 12 0zm5.5 17.3c-.2.4-.7.5-1 .3-2.9-1.8-6.5-2.2-10.8-1.2-.4.1-.8-.2-.9-.6-.1-.4.2-.8.6-.9 4.7-1.1 8.7-.6 12 1.4.4.2.5.7.1 1zm1.5-3.3c-.3.4-.8.6-1.2.3-3.3-2-8.4-2.6-12.3-1.4-.5.1-1-.1-1.2-.6-.1-.5.1-1 .6-1.2 4.5-1.4 10.1-.7 13.9 1.6.4.3.5.9.2 1.3zm.1-3.4C15.3 8.3 8.7 8.1 5 9.2c-.5.2-1.1-.1-1.3-.7-.2-.5.1-1.1.7-1.3 4.3-1.3 11.5-1 16 1.6.5.3.7 1 .4 1.5-.3.4-1 .6-1.5.3z"/></svg>
+          Spotify
+          <span class="badge">SOON</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="show-block fade-up">
+      <div class="cover-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1400" role="img" aria-label="The Hard Way cover art">
+          <defs>
+            <radialGradient id="cg-a" cx="18%" cy="22%" r="60%">
+              <stop offset="0%" stop-color="#4F7CFF" stop-opacity="0.22"/>
+              <stop offset="100%" stop-color="#4F7CFF" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="cg-b" cx="82%" cy="78%" r="55%">
+              <stop offset="0%" stop-color="#6EA0FF" stop-opacity="0.14"/>
+              <stop offset="100%" stop-color="#6EA0FF" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="cg-rule" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#4F7CFF" stop-opacity="0"/>
+              <stop offset="50%" stop-color="#6EA0FF" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#4F7CFF" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <rect width="1400" height="1400" fill="#0B1020"/>
+          <rect width="1400" height="1400" fill="url(#cg-a)"/>
+          <rect width="1400" height="1400" fill="url(#cg-b)"/>
+          <g transform="translate(380, 175)">
+            <rect width="640" height="60" rx="30" fill="#4F7CFF" fill-opacity="0.08" stroke="#4F7CFF" stroke-opacity="0.25" stroke-width="1"/>
+            <circle cx="40" cy="30" r="5" fill="#6EA0FF"/>
+            <text x="335" y="40" text-anchor="middle" fill="#6EA0FF" font-family="'JetBrains Mono', monospace" font-size="30" font-weight="600" letter-spacing="7">AN UNOFFICIAL LEADER SERIES</text>
+          </g>
+          <text x="700" y="490" text-anchor="middle" fill="#ffffff" font-family="'Inter', sans-serif" font-size="180" font-weight="900" letter-spacing="-7">THE</text>
+          <text x="700" y="740" text-anchor="middle" fill="#6EA0FF" font-family="'Inter', sans-serif" font-size="260" font-weight="900" letter-spacing="-10">HARD</text>
+          <text x="700" y="960" text-anchor="middle" fill="#ffffff" font-family="'Inter', sans-serif" font-size="180" font-weight="900" letter-spacing="-7">WAY</text>
+          <line x1="450" y1="1075" x2="950" y2="1075" stroke="url(#cg-rule)" stroke-width="1.5"/>
+          <text x="700" y="1150" text-anchor="middle" fill="#6EA0FF" font-family="'Caveat', cursive" font-size="68" font-weight="500">some folks got to learn the hard way</text>
+          <text x="700" y="1285" text-anchor="middle" fill="#9aa3b8" font-family="'JetBrains Mono', monospace" font-size="26" font-weight="500" letter-spacing="5">IAN COWPAR &#215; VANESSA M NEDVINS</text>
+        </svg>
+      </div>
+      <div>
+        <span class="label">What this is</span>
+        <h2 class="section-heading">Leadership the way it actually shows up.</h2>
+        <p class="lede"><em>The Hard Way</em> is a conversation between an operator and a coach about the principles leaders actually live by &mdash; and the moments that taught them.</p>
+        <p class="lede">Every episode takes three principles, and we each bring a real moment when one of them stopped being a line on a wall and started costing us something. No theory. No leadership-talk. <span class="key">Just the bruise and what it taught us.</span></p>
+        <div class="spine-grid">
+          <div class="spine-card">
+            <span class="num">30</span>
+            <span class="lbl">minutes</span>
+          </div>
+          <div class="spine-card">
+            <span class="num">3&ndash;4</span>
+            <span class="lbl">principles</span>
+          </div>
+          <div class="spine-card">
+            <span class="num">1</span>
+            <span class="lbl">question</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block alt fade-up">
+      <div class="inner">
+        <span class="label">The Hosts</span>
+        <h2 class="section-heading">Two lenses on the same principles.</h2>
+
+        <div class="hosts-grid">
+          <div class="host-card">
+            <span class="host-role">The Operator</span>
+            <h3>Ian Cowpar</h3>
+            <p>AI-native PM leader. Writes <em><a href="https://theunofficialleader.substack.com" target="_blank" rel="noopener">The Unofficial Leader</a></em>, where Zero-Translation Building and the Network Intelligence Layer started. Built inside compliance-grade financial services and a $250M ARR HCM platform. Brings the operator's lens &mdash; what these principles look like when they have to ship through a real org.</p>
+            <div class="host-links">
+              <a href="index.html">Portfolio</a>
+              <a href="leaders-manifesto.html">The Manifesto</a>
+              <a href="https://www.linkedin.com/in/ian-cowpar" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </div>
+          <div class="host-card">
+            <span class="host-role">The Coach</span>
+            <h3>Vanessa M Nedvins</h3>
+            <p>Transformation Leader, Leadership Coach, and Speaker. Brings the coach's lens to <em>The Hard Way</em> &mdash; how principles show up in conversation, in growth, in the moments a leader has to choose what kind of person they're going to be when no one's watching.</p>
+            <div class="host-links">
+              <a href="https://www.linkedin.com/in/vanessa-nedvins" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block fade-up">
+      <span class="label">How it works</span>
+      <h2 class="section-heading">A spine you can feel by minute eight.</h2>
+      <p class="lede" style="max-width: 65ch;">The show is built around one question, asked of every guest, every episode. The format is a repeatable beat called <strong>The Principle Pass</strong> &mdash; same five steps every time, so listeners settle into the rhythm and we keep our promise to ship something dense in thirty minutes.</p>
+
+      <p class="spine-question">"What did you have to learn the hard way?"</p>
+
+      <div class="pass-list">
+        <div class="pass">
+          <span class="pass-time">0&ndash;1 min</span>
+          <span class="pass-body"><strong>Read it.</strong> One of us reads the principle aloud, in full.</span>
+        </div>
+        <div class="pass">
+          <span class="pass-time">1&ndash;4 min</span>
+          <span class="pass-body"><strong>The moment.</strong> A real story &mdash; the time this principle stopped being abstract.</span>
+        </div>
+        <div class="pass">
+          <span class="pass-time">4&ndash;6 min</span>
+          <span class="pass-body"><strong>The other beat.</strong> The same principle, different lens. Operator vs. coach.</span>
+        </div>
+        <div class="pass">
+          <span class="pass-time">6&ndash;7 min</span>
+          <span class="pass-body"><strong>The friction.</strong> Where we see it differently. What we'd edit.</span>
+        </div>
+        <div class="pass">
+          <span class="pass-time">~7 min</span>
+          <span class="pass-body"><strong>The reframe.</strong> One sentence: how we'd word it differently now.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="block alt fade-up">
+      <div class="inner">
+        <span class="label">Season 1</span>
+        <h2 class="section-heading">Six episodes, anchored in the Manifesto.</h2>
+        <p class="lede" style="max-width: 65ch;">Season 1 walks <a href="leaders-manifesto.html"><em>The Unofficial Leader's Manifesto</em></a> &mdash; fourteen commitments &mdash; in pairs and threes. After that, the show opens up to guests who bring their own principles to pressure-test against ours.</p>
+
+        <div class="ep-list">
+          <div class="ep featured">
+            <div class="ep-num">01</div>
+            <div>
+              <h3 class="ep-title">The Operator and the Coach</h3>
+              <p class="ep-meta">
+                with Vanessa M Nedvins<br/>
+                <span class="principles">Principles IV &middot; XI &middot; XIV</span>
+              </p>
+            </div>
+            <span class="ep-status">Premiering Soon</span>
+          </div>
+          <div class="ep placeholder">
+            <div class="ep-num">02</div>
+            <div>
+              <h3 class="ep-title">TBA</h3>
+              <p class="ep-meta">Guest and principles to be announced.</p>
+            </div>
+            <span class="ep-status">Coming Soon</span>
+          </div>
+          <div class="ep placeholder">
+            <div class="ep-num">03</div>
+            <div>
+              <h3 class="ep-title">TBA</h3>
+              <p class="ep-meta">Guest and principles to be announced.</p>
+            </div>
+            <span class="ep-status">Coming Soon</span>
+          </div>
+          <div class="ep placeholder">
+            <div class="ep-num">04</div>
+            <div>
+              <h3 class="ep-title">TBA</h3>
+              <p class="ep-meta">Guest and principles to be announced.</p>
+            </div>
+            <span class="ep-status">Coming Soon</span>
+          </div>
+          <div class="ep placeholder">
+            <div class="ep-num">05</div>
+            <div>
+              <h3 class="ep-title">TBA</h3>
+              <p class="ep-meta">Guest and principles to be announced.</p>
+            </div>
+            <span class="ep-status">Coming Soon</span>
+          </div>
+          <div class="ep placeholder">
+            <div class="ep-num">06</div>
+            <div>
+              <h3 class="ep-title">TBA</h3>
+              <p class="ep-meta">Guest and principles to be announced.</p>
+            </div>
+            <span class="ep-status">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="close fade-up">
+      <div class="close-inner">
+        <p class="apollo">"Some folks got to learn the hard way."</p>
+        <p class="attr">&mdash; APOLLO CREED</p>
+        <a class="sub-btn primary" href="https://theunofficialleader.substack.com" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+          Subscribe to be the first to hear
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <a href="index.html">Portfolio</a>
+    <span class="dot">&middot;</span>
+    <a href="leaders-manifesto.html">The Manifesto</a>
+    <span class="dot">&middot;</span>
+    <a href="https://theunofficialleader.substack.com" target="_blank" rel="noopener">Substack</a>
+    <span class="dot">&middot;</span>
+    <a href="mailto:ian.cowpar@gmail.com">ian.cowpar@gmail.com</a>
+  </footer>
+
+  <script>
+    (function() {
+      if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('.fade-up').forEach(function(el) { el.classList.add('in-view'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+    })();
+  </script>
+
+</body>
+</html>
