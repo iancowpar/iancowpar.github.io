@@ -707,6 +707,153 @@
     footer a:hover { color: var(--accent-bright); text-decoration: none; }
     footer .dot { margin: 0 0.6rem; color: var(--border-dark); }
 
+    /* HERO SOCIAL ROW ----------------------------------------- */
+    .cta-row .btn-primary { flex: 0 0 auto; }
+    .social-row {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+    }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--text-dark);
+      transition: all 0.15s ease;
+    }
+    .social-btn:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+    .social-btn svg { width: 18px; height: 18px; }
+
+    /* SIGNAL BAND --------------------------------------------- */
+    .signal {
+      background: var(--bg-light-2);
+      border-bottom: 1px solid var(--border-light);
+      padding: 3rem 2rem;
+    }
+    .signal-inner { max-width: 1080px; margin: 0 auto; }
+    .signal-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.85rem;
+    }
+    .signal-ask {
+      font-size: clamp(1.15rem, 1.9vw, 1.5rem);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.45;
+      margin: 0 0 2rem;
+      max-width: 64ch;
+      color: var(--text-light);
+    }
+    .signal-ask .accent { color: var(--accent); }
+    .signal-proof {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .proof {
+      border-left: 2px solid var(--accent);
+      padding-left: 1rem;
+    }
+    .proof-num {
+      display: block;
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-light);
+      line-height: 1.15;
+      margin-bottom: 0.35rem;
+    }
+    .proof-lbl {
+      display: block;
+      font-size: 0.86rem;
+      color: var(--text-light-muted);
+      line-height: 1.45;
+    }
+
+    /* CHALLENGE ----------------------------------------------- */
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .challenge-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      padding: 1.6rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .challenge-card .ch-index {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      display: block;
+      margin-bottom: 0.85rem;
+    }
+    .challenge-card h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+      margin: 0 0 0.6rem;
+      color: var(--text-light);
+    }
+    .challenge-card p {
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: var(--text-light-muted);
+      margin: 0;
+    }
+
+    /* WORK STATS ---------------------------------------------- */
+    .work-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.75rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .work-stat { display: flex; flex-direction: column; }
+    .work-stat .ws-num {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+    .work-stat .ws-lbl {
+      font-size: 0.76rem;
+      color: var(--text-light-muted);
+      line-height: 1.35;
+      margin-top: 0.25rem;
+      max-width: 24ch;
+    }
+
+    /* CHALLENGE responsive ------------------------------------ */
+    @media (max-width: 880px) {
+      .challenge-grid { grid-template-columns: 1fr 1fr; }
+    }
+
     /* Mobile -------------------------------------------------- */
     @media (max-width: 640px) {
       .hero { padding: 3.5rem 1.25rem 4rem; }
@@ -719,13 +866,21 @@
       .project-card .callout-hand { font-size: 1.2rem; }
       .cta-row {
         max-width: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
       }
-      .cta-row .btn {
-        flex: 0 1 calc(50% - 0.375rem);
-        min-width: 0;
-        padding: 0.75rem 1rem;
-        font-size: 0.9rem;
+      .cta-row .btn-primary {
+        width: 100%;
+        padding: 0.85rem 1rem;
+        font-size: 0.95rem;
       }
+      .social-row { justify-content: space-between; }
+      .social-btn { flex: 1 1 0; }
+      .signal { padding: 2.5rem 1.25rem; }
+      .signal-proof { grid-template-columns: 1fr; gap: 1.1rem; }
+      .challenge-grid { grid-template-columns: 1fr; }
+      .work-stats { gap: 1.25rem; }
     }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&display=swap" rel="stylesheet" />
@@ -743,23 +898,74 @@
       <p class="hero-role">I work on the hidden systems that shape work, trust, adoption, and culture. I don't hand ideas to engineering. I build them, share them, and stay accountable for whether people actually use them. Compliance-grade is where I learned the work. AI-native is how I do it now.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="mailto:ian.cowpar@gmail.com">Get in touch</a>
-        <a class="btn btn-secondary" href="https://www.linkedin.com/in/ian-cowpar" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-          LinkedIn
-        </a>
-        <a class="btn btn-secondary" href="https://theunofficialleader.substack.com" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
-          Substack
-        </a>
-        <a class="btn btn-secondary" href="https://github.com/iancowpar" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          GitHub
-        </a>
+        <div class="social-row">
+          <a class="social-btn" href="https://www.linkedin.com/in/ian-cowpar" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+          <a class="social-btn" href="https://theunofficialleader.substack.com" target="_blank" rel="noopener" aria-label="Substack">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+          </a>
+          <a class="social-btn" href="https://github.com/iancowpar" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </header>
 
   <main id="main">
+
+    <section class="signal fade-up">
+      <div class="signal-inner">
+        <span class="signal-label">What I'm looking for &middot; May 2026</span>
+        <p class="signal-ask">A senior product-leadership seat where the hidden systems &mdash; trust, adoption, influence &mdash; <span class="accent">are the work, not the afterthought</span>. Operator rigor, founder instinct, AI-native. Currently building <a href="the-hard-way.html">The Hard Way</a> and writing at <a href="https://theunofficialleader.substack.com" target="_blank" rel="noopener">The Unofficial Leader</a>.</p>
+        <div class="signal-proof">
+          <div class="proof">
+            <span class="proof-num tabular">$250M ARR</span>
+            <span class="proof-lbl">in flight across the migration &amp; upgrade programs I owned at UKG</span>
+          </div>
+          <div class="proof">
+            <span class="proof-num">Weeks &rarr; one run</span>
+            <span class="proof-lbl">Config-migration prototype I built with Claude Code &mdash; engineering shipped against it</span>
+          </div>
+          <div class="proof">
+            <span class="proof-num">In use today</span>
+            <span class="proof-lbl">AI capability platform I built from scratch; internal teams run on it now</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block alt fade-up">
+      <div class="inner" style="padding: 0 2rem;">
+        <span class="label">The Gap</span>
+        <h2 class="section-heading">The problems that don't show up in a process diagram.</h2>
+        <p class="section-sub">The system beneath the visible system. It doesn't appear on the org chart or the roadmap, and it decides everything anyway. This is the work I'm drawn to.</p>
+
+        <div class="challenge-grid">
+          <div class="challenge-card">
+            <span class="ch-index">01</span>
+            <h3>Ideas die in translation</h3>
+            <p>The team names the right thing in the room. Then it survives a ticket, a sprint, someone else's hands &mdash; and what ships isn't what was named. The translation layer is the cost.</p>
+          </div>
+          <div class="challenge-card">
+            <span class="ch-index">02</span>
+            <h3>AI rollouts stall in Layer 2</h3>
+            <p>A new capability gets bolted on top of a foundation that was never built. Adoption flatlines. The fix isn't a better tool &mdash; it's the layer underneath it.</p>
+          </div>
+          <div class="challenge-card">
+            <span class="ch-index">03</span>
+            <h3>The org chart isn't how work moves</h3>
+            <p>Influence, trust, and who actually gets things done live in a relational layer the org chart can't see &mdash; until a reorg takes it apart and the cost becomes catastrophically visible.</p>
+          </div>
+          <div class="challenge-card">
+            <span class="ch-index">04</span>
+            <h3>Adoption is a trust transfer</h3>
+            <p>In regulated, high-stakes environments, adoption isn't a feature flag you ship. It's trust moved from one party to another. Miss that and the rollout dies quietly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="block fade-up">
       <span class="label">Manifesto</span>
@@ -842,12 +1048,40 @@
       <div class="work-grid">
         <div class="work-card">
           <span class="role-label">UKG &middot; Senior PM</span>
+          <div class="work-stats">
+            <div class="work-stat">
+              <span class="ws-num tabular">Weeks &rarr; 1 run</span>
+              <span class="ws-lbl">ProTime&rarr;ProWFM config migration, compressed</span>
+            </div>
+            <div class="work-stat">
+              <span class="ws-num tabular">$250M ARR</span>
+              <span class="ws-lbl">in flight across the programs I owned</span>
+            </div>
+            <div class="work-stat">
+              <span class="ws-num tabular">300 customers</span>
+              <span class="ws-lbl">enterprise portfolio, one observability view</span>
+            </div>
+          </div>
           <p>Configuration data migration from ProTime to ProWFM used to take weeks: a ticket queue, an engineer to run the queries, output structuring, a customer review session, and manual mapping adjustments. I compressed all of that into a single run by building a functional prototype myself with Claude Code and agentic workflows, on top of existing product components so engineering did not have to start from scratch. The architect's line after the walkthrough was "you guys don't even need me anymore." Engineering shipped against the prototype and the Claude-generated stories. Internal services runs the extractions in it now and sits with customers to review the output.</p>
           <p>I owned a five-panel observability platform that gave engineering, product, and CX leaders the portfolio view they did not have before. Customer status had been living in the heads of services consultants and scattered across Salesforce and Jira queues. Nobody could answer "how many of our <span class="tabular">300</span> enterprise customers are at risk in their migrations right now" without weeks of digging. The platform filtered support-Jira noise down to true defects, weighted them by ARR at risk and customer sentiment pulled from Salesforce, and tracked time-to-resolve across both the upgrade and migration programs. <span class="tabular">$250M</span> in ARR was in flight across those programs at any given time. The dashboards guided engineering team focus and targeted customer success outreach. I partnered with account management to join calls with red-sentiment, high-ARR customers personally, and assuaged concerns across multiple accounts that had history with rough past upgrades and tension elsewhere in the business. The frame I was building toward was TTRE, Time to Right Expert. Routing latency is the problem, not resolution time. AI in CS plays as intelligent routing and parallel triage, not as faster ticket-typing.</p>
         </div>
 
         <div class="work-card">
           <span class="role-label">Broadridge Financial Solutions &middot; Business Analyst</span>
+          <div class="work-stats">
+            <div class="work-stat">
+              <span class="ws-num tabular">40+ deployments</span>
+              <span class="ws-lbl">enterprise client rollouts led</span>
+            </div>
+            <div class="work-stat">
+              <span class="ws-num">Regulated SMS/RCS</span>
+              <span class="ws-lbl">adoption of paper-by-default comms</span>
+            </div>
+            <div class="work-stat">
+              <span class="ws-num">Internal SME</span>
+              <span class="ws-lbl">platform expert across the full client base</span>
+            </div>
+          </div>
           <p>Compliance-grade financial services. My last stretch was driving customer adoption and onboarding for the new omni-channel communications product. The customers were legacy financial services firms, annuities and the like, with end-customer bases that skew older. The product pushed SMS and RCS as the delivery channel for regulated documents like statements and confirms, the kind of paper-by-default workflow nobody in that demographic had ever opted into. <span class="key">Adoption in that environment is not a feature flag. It is a trust transfer.</span> Before that I led <span class="tabular">40</span>-plus enterprise client deployments and served as the internal SME on the platform across the full client base.</p>
         </div>
       </div>
