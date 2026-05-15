@@ -786,44 +786,6 @@
       line-height: 1.45;
     }
 
-    /* CHALLENGE ----------------------------------------------- */
-    .challenge-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.25rem;
-      margin-top: 2.5rem;
-    }
-    .challenge-card {
-      background: var(--bg-light);
-      border: 1px solid var(--border-light);
-      border-radius: 14px;
-      padding: 1.6rem 1.5rem;
-      box-shadow: var(--shadow-sm);
-    }
-    .challenge-card .ch-index {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--accent);
-      letter-spacing: 0.04em;
-      display: block;
-      margin-bottom: 0.85rem;
-    }
-    .challenge-card h3 {
-      font-size: 1.05rem;
-      font-weight: 800;
-      letter-spacing: -0.015em;
-      line-height: 1.25;
-      margin: 0 0 0.6rem;
-      color: var(--text-light);
-    }
-    .challenge-card p {
-      font-size: 0.9rem;
-      line-height: 1.55;
-      color: var(--text-light-muted);
-      margin: 0;
-    }
-
     /* WORK STATS ---------------------------------------------- */
     .work-stats {
       display: flex;
@@ -849,11 +811,6 @@
       max-width: 24ch;
     }
 
-    /* CHALLENGE responsive ------------------------------------ */
-    @media (max-width: 880px) {
-      .challenge-grid { grid-template-columns: 1fr 1fr; }
-    }
-
     /* Mobile -------------------------------------------------- */
     @media (max-width: 640px) {
       .hero { padding: 3.5rem 1.25rem 4rem; }
@@ -868,18 +825,20 @@
         max-width: none;
         flex-direction: column;
         align-items: stretch;
-        gap: 1rem;
+        gap: 1.1rem;
       }
       .cta-row .btn-primary {
         width: 100%;
-        padding: 0.85rem 1rem;
-        font-size: 0.95rem;
+        padding: 0.95rem 1rem;
+        font-size: 1rem;
       }
-      .social-row { justify-content: space-between; }
-      .social-btn { flex: 1 1 0; }
+      .social-row {
+        justify-content: flex-start;
+        gap: 0.65rem;
+      }
+      .social-btn { width: 48px; height: 48px; }
       .signal { padding: 2.5rem 1.25rem; }
       .signal-proof { grid-template-columns: 1fr; gap: 1.1rem; }
-      .challenge-grid { grid-template-columns: 1fr; }
       .work-stats { gap: 1.25rem; }
     }
   </style>
@@ -931,37 +890,6 @@
           <div class="proof">
             <span class="proof-num">In use today</span>
             <span class="proof-lbl">AI capability platform I built from scratch; internal teams run on it now</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="block alt fade-up">
-      <div class="inner" style="padding: 0 2rem;">
-        <span class="label">The Gap</span>
-        <h2 class="section-heading">The problems that don't show up in a process diagram.</h2>
-        <p class="section-sub">The system beneath the visible system. It doesn't appear on the org chart or the roadmap, and it decides everything anyway. This is the work I'm drawn to.</p>
-
-        <div class="challenge-grid">
-          <div class="challenge-card">
-            <span class="ch-index">01</span>
-            <h3>Ideas die in translation</h3>
-            <p>The team names the right thing in the room. Then it survives a ticket, a sprint, someone else's hands &mdash; and what ships isn't what was named. The translation layer is the cost.</p>
-          </div>
-          <div class="challenge-card">
-            <span class="ch-index">02</span>
-            <h3>AI rollouts stall in Layer 2</h3>
-            <p>A new capability gets bolted on top of a foundation that was never built. Adoption flatlines. The fix isn't a better tool &mdash; it's the layer underneath it.</p>
-          </div>
-          <div class="challenge-card">
-            <span class="ch-index">03</span>
-            <h3>The org chart isn't how work moves</h3>
-            <p>Influence, trust, and who actually gets things done live in a relational layer the org chart can't see &mdash; until a reorg takes it apart and the cost becomes catastrophically visible.</p>
-          </div>
-          <div class="challenge-card">
-            <span class="ch-index">04</span>
-            <h3>Adoption is a trust transfer</h3>
-            <p>In regulated, high-stakes environments, adoption isn't a feature flag you ship. It's trust moved from one party to another. Miss that and the rollout dies quietly.</p>
           </div>
         </div>
       </div>
