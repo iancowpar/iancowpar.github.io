@@ -508,6 +508,44 @@
       margin: 0;
     }
 
+    .lead-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+      margin-top: 2rem;
+    }
+    .lead-item {
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 1.15rem 1.3rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .lead-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.45rem;
+    }
+    .lead-name {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--text-light);
+      margin: 0 0 0.4rem;
+      line-height: 1.25;
+    }
+    .lead-key {
+      color: var(--text-light-muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+    @media (max-width: 640px) { .lead-grid { grid-template-columns: 1fr; } }
+
     .field-note-wrap { margin-top: 2.5rem; }
     .field-note-wrap img {
       width: 100%;
@@ -877,7 +915,7 @@
     <section class="signal fade-up">
       <div class="signal-inner">
         <span class="signal-label">What I'm looking for &middot; May 2026</span>
-        <p class="signal-ask">A senior product-leadership seat where the hidden systems &mdash; trust, adoption, influence &mdash; <span class="accent">are the work, not the afterthought</span>. Operator rigor, founder instinct, AI-native. Currently building <a href="the-hard-way.html">The Hard Way</a> and writing at <a href="https://theunofficialleader.substack.com" target="_blank" rel="noopener">The Unofficial Leader</a>.</p>
+        <p class="signal-ask">A senior product-leadership seat where the hidden systems &mdash; trust, adoption, influence &mdash; <span class="accent">are the work, not the afterthought</span>. Operator rigor, founder instinct, AI-native. The proof is already shipped and in use; <a href="the-hard-way.html">The Hard Way</a> and <a href="https://theunofficialleader.substack.com" target="_blank" rel="noopener">The Unofficial Leader</a> are where the thesis gets pressure-tested in public.</p>
         <div class="signal-proof">
           <div class="proof">
             <span class="proof-num tabular">$250M ARR</span>
@@ -927,6 +965,91 @@
         <div class="callout">
           <p>What I am looking for now is a senior seat where the hidden systems get to be the work.</p>
           <p>That level is where servant leadership and player/coach instincts push AI adoption sideways, across teams, functions, and orgs.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block alt fade-up">
+      <div class="inner" style="padding: 0 2rem;">
+        <span class="label">How I Lead</span>
+        <h2 class="section-heading">Leadership before the title.</h2>
+        <p class="section-sub">I have not carried a people-manager title yet. This is the operating model I bring to it &mdash; not theory assembled for a job search, but commitments I wrote down and hold myself to as an unofficial leader: how I run toward clarity, how I'd hire, how feedback travels, how I handle the fall. Fourteen of them. The title is the only part missing, and it's the part I control least.</p>
+
+        <div class="lead-grid">
+          <div class="lead-item">
+            <span class="lead-num">I</span>
+            <p class="lead-name">I Lead Through What I Make Possible &mdash; Not What I Control</p>
+            <p class="lead-key">The goal is motion that doesn't require me.</p>
+          </div>
+          <div class="lead-item">
+            <span class="lead-num">II</span>
+            <p class="lead-name">Clarity Is a Leadership Act</p>
+            <p class="lead-key">Real clarity is uncomfortable sometimes. I do it anyway.</p>
+          </div>
+          <div class="lead-item">
+            <span class="lead-num">III</span>
+            <p class="lead-name">I Build Builders</p>
+            <p class="lead-key">Leave people more dangerous than you found them.</p>
+          </div>
+          <div class="lead-item">
+            <span class="lead-num">IV</span>
+            <p class="lead-name">I Hire the Person Before the Resume</p>
+            <p class="lead-key">Character is the variable that makes the difference. Hire for it first.</p>
+          </div>
+          <div class="lead-item">
+            <span class="lead-num">V</span>
+            <p class="lead-name">Culture Lives in Small Moments</p>
+            <p class="lead-key">Every small moment is a vote for the kind of team you are.</p>
+          </div>
+          <div class="lead-item">
+            <span class="lead-num">VI</span>
+            <p class="lead-name">I Name What's True in the Room</p>
+            <p class="lead-key">The cost of silence compounds. Name it in the room.</p>
+          </div>
+          <div class="lead-item">
+            <span class="lead-num">VII</span>
+            <p class="lead-name">Trust Before Process</p>
+            <p class="lead-key">Trust is the structure. Process is just scaffold.</p>
+          </div>
+          <div class="lead-item">
+            <span class="lead-num">VIII</span>
+            <p class="lead-name">I Don't Optimize for Credit</p>
+            <p class="lead-key">Protecting each other's credit beats competing for it.</p>
+          </div>
+          <div class="lead-item">
+            <span class="lead-num">IX</span>
+            <p class="lead-name">Growth Is the Job &mdash; Theirs and Mine</p>
+            <p class="lead-key">A leader who stopped growing is a ceiling, not a ladder.</p>
+          </div>
+          <div class="lead-item">
+            <span class="lead-num">X</span>
+            <p class="lead-name">I Am Responsible for Conditions, Not Just Outcomes</p>
+            <p class="lead-key">Accountability flows up before it flows down.</p>
+          </div>
+          <div class="lead-item">
+            <span class="lead-num">XI</span>
+            <p class="lead-name">The Fall Is Mine. The Win Is Yours.</p>
+            <p class="lead-key">The win belongs to the person who did the work.</p>
+          </div>
+          <div class="lead-item">
+            <span class="lead-num">XII</span>
+            <p class="lead-name">The 1:1 Is Yours, Not Mine</p>
+            <p class="lead-key">The 1:1 isn't a status meeting. It's theirs.</p>
+          </div>
+          <div class="lead-item">
+            <span class="lead-num">XIII</span>
+            <p class="lead-name">Feedback Is Continuous and 360&deg;</p>
+            <p class="lead-key">No one should be surprised at a review. And I go first.</p>
+          </div>
+          <div class="lead-item">
+            <span class="lead-num">XIV</span>
+            <p class="lead-name">The Unofficial Leader Goes First</p>
+            <p class="lead-key">It's about being the kind of person others choose to follow &mdash; even when they don't have to.</p>
+          </div>
+        </div>
+
+        <div class="callout">
+          <p>Each commitment, in full &mdash; how I'd run the 1:1, hire, handle the fall when it goes sideways. <a href="leaders-manifesto.html">Read <em>The Unofficial Leader's Manifesto</em> &rarr;</a></p>
         </div>
       </div>
     </section>
@@ -1019,7 +1142,7 @@
       <div class="inner" style="padding: 0 2rem;">
         <span class="label">Projects</span>
         <h2 class="section-heading">Shipping in public.</h2>
-        <p class="section-sub">Three current builds. The differentiator is always the person at the keyboard.</p>
+        <p class="section-sub">Three things I shipped and put live &mdash; not slideware. The differentiator is always the person at the keyboard.</p>
 
         <div class="projects-grid">
           <div class="project-card featured">
